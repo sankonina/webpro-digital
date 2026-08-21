@@ -1,88 +1,118 @@
-from fastapi import FastAPI, HTTPException, Form
-from fastapi.responses import FileResponse, HTMLResponse
-from pydantic import BaseModel
+import os
 import sqlite3
 from datetime import datetime
 
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
+from fastapi import FastAPI, HTTPException, Form
+from fastapi.responses import FileResponse, HTMLResponse
+from pydantic import BaseModel
+
+
 app = FastAPI()
 
-ADMIN_PASSWORD = "1234"
+
+# ==================================================
+# SETTINGS
+# ==================================================
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+# מקומית אפשר להמשיך עם 1234 עד שנגדיר סיסמה ב-Render
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "1234")
+
+USE_POSTGRES = bool(DATABASE_URL)
 
 
-# =========================
-# DATABASE
-# =========================
+# ==================================================
+# DATABASE CONNECTION
+# ==================================================
+
+def get_connection():
+
+    if USE_POSTGRES:
+
+        return psycopg2.connect(
+            DATABASE_URL,
+            cursor_factory=RealDictCursor
+        )
+
+    return sqlite3.connect(
+        "customers.db"
+    )
+
+
+# ==================================================
+# DATABASE INITIALIZATION
+# ==================================================
 
 def create_database():
 
-    connection = sqlite3.connect("customers.db")
+    connection = get_connection()
     cursor = connection.cursor()
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS customers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
-            phone TEXT NOT NULL,
-            business TEXT,
-            service TEXT,
-            message TEXT,
-            created_at TEXT,
-            status TEXT DEFAULT 'חדש'
-        )
-    """)
+    if USE_POSTGRES:
 
-    # Check existing columns
-    cursor.execute("PRAGMA table_info(customers)")
-    columns = [column[1] for column in cursor.fetchall()]
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS customers (
+                id SERIAL PRIMARY KEY,
+                name TEXT NOT NULL,
+                phone TEXT NOT NULL,
+                business TEXT DEFAULT '',
+                service TEXT DEFAULT '',
+                message TEXT DEFAULT '',
+                created_at TEXT,
+                status TEXT DEFAULT 'חדש'
+            )
+        """)
 
-    # Add created_at to an old database
-    if "created_at" not in columns:
+    else:
 
-        cursor.execute(
-            "ALTER TABLE customers ADD COLUMN created_at TEXT"
-        )
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS customers (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                phone TEXT NOT NULL,
+                business TEXT DEFAULT '',
+                service TEXT DEFAULT '',
+                message TEXT DEFAULT '',
+                created_at TEXT,
+                status TEXT DEFAULT 'חדש'
+            )
+        """)
 
-        current_time = datetime.now().strftime(
-            "%d/%m/%Y %H:%M"
-        )
+        # תאימות למסד SQLite ישן
+        cursor.execute("PRAGMA table_info(customers)")
 
-        cursor.execute(
-            """
-            UPDATE customers
-            SET created_at = ?
-            WHERE created_at IS NULL
-            """,
-            (current_time,)
-        )
+        columns = [
+            column[1]
+            for column in cursor.fetchall()
+        ]
 
-    # Add status to an old database
-    if "status" not in columns:
+        if "created_at" not in columns:
 
-        cursor.execute(
-            """
-            ALTER TABLE customers
-            ADD COLUMN status TEXT DEFAULT 'חדש'
-            """
-        )
+            cursor.execute(
+                "ALTER TABLE customers ADD COLUMN created_at TEXT"
+            )
 
-        cursor.execute(
-            """
-            UPDATE customers
-            SET status = 'חדש'
-            WHERE status IS NULL
-            """
-        )
+        if "status" not in columns:
+
+            cursor.execute(
+                "ALTER TABLE customers ADD COLUMN status TEXT DEFAULT 'חדש'"
+            )
 
     connection.commit()
+    cursor.close()
     connection.close()
 
 
 create_database()
 
 
-# =========================
+# ==================================================
 # CUSTOMER MODEL
-# =========================
+# ==================================================
 
 class Customer(BaseModel):
 
@@ -93,65 +123,99 @@ class Customer(BaseModel):
     message: str = ""
 
 
-# =========================
-# MAIN WEBSITE
-# =========================
+# ==================================================
+# WEBSITE FILES
+# ==================================================
 
 @app.get("/")
 def home():
 
-    return FileResponse("company-home.html")
+    return FileResponse(
+        "company-home.html"
+    )
 
 
 @app.get("/company-style.css")
 def style():
 
-    return FileResponse("company-style.css")
+    return FileResponse(
+        "company-style.css"
+    )
 
 
 @app.get("/company.js")
 def javascript():
 
-    return FileResponse("company.js")
+    return FileResponse(
+        "company.js"
+    )
 
 
-# =========================
+# ==================================================
 # SAVE CUSTOMER
-# =========================
+# ==================================================
 
 @app.post("/customers")
 def save_customer(customer: Customer):
 
-    connection = sqlite3.connect("customers.db")
+    connection = get_connection()
     cursor = connection.cursor()
 
     created_at = datetime.now().strftime(
         "%d/%m/%Y %H:%M"
     )
 
-    cursor.execute("""
-        INSERT INTO customers
-        (
-            name,
-            phone,
-            business,
-            service,
-            message,
+    if USE_POSTGRES:
+
+        cursor.execute("""
+            INSERT INTO customers
+            (
+                name,
+                phone,
+                business,
+                service,
+                message,
+                created_at,
+                status
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """, (
+            customer.name,
+            customer.phone,
+            customer.business,
+            customer.service,
+            customer.message,
             created_at,
-            status
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-    """, (
-        customer.name,
-        customer.phone,
-        customer.business,
-        customer.service,
-        customer.message,
-        created_at,
-        "חדש"
-    ))
+            "חדש"
+        ))
+
+    else:
+
+        cursor.execute("""
+            INSERT INTO customers
+            (
+                name,
+                phone,
+                business,
+                service,
+                message,
+                created_at,
+                status
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            customer.name,
+            customer.phone,
+            customer.business,
+            customer.service,
+            customer.message,
+            created_at,
+            "חדש"
+        ))
 
     connection.commit()
+
+    cursor.close()
     connection.close()
 
     return {
@@ -160,9 +224,9 @@ def save_customer(customer: Customer):
     }
 
 
-# =========================
+# ==================================================
 # ADMIN LOGIN PAGE
-# =========================
+# ==================================================
 
 @app.get("/admin")
 def admin_login():
@@ -177,7 +241,9 @@ def admin_login():
 
             html = file.read()
 
-        return HTMLResponse(content=html)
+        return HTMLResponse(
+            content=html
+        )
 
     except FileNotFoundError:
 
@@ -187,12 +253,14 @@ def admin_login():
         )
 
 
-# =========================
-# CHECK ADMIN PASSWORD
-# =========================
+# ==================================================
+# ADMIN LOGIN CHECK
+# ==================================================
 
 @app.post("/admin/login")
-def admin_login_check(password: str = Form(...)):
+def admin_login_check(
+    password: str = Form(...)
+):
 
     if password != ADMIN_PASSWORD:
 
@@ -206,22 +274,26 @@ def admin_login_check(password: str = Form(...)):
     }
 
 
-# =========================
+# ==================================================
 # ADMIN PAGE
-# =========================
+# ==================================================
 
 @app.get("/admin.html")
 def admin_page():
 
-    return FileResponse("admin.html")
+    return FileResponse(
+        "admin.html"
+    )
 
 
-# =========================
+# ==================================================
 # GET CUSTOMERS
-# =========================
+# ==================================================
 
 @app.get("/customers-list")
-def get_customers(password: str = ""):
+def get_customers(
+    password: str = ""
+):
 
     if password != ADMIN_PASSWORD:
 
@@ -230,39 +302,75 @@ def get_customers(password: str = ""):
             detail="גישה לא מורשית"
         )
 
-    connection = sqlite3.connect("customers.db")
+    connection = get_connection()
 
-    connection.row_factory = sqlite3.Row
+    if USE_POSTGRES:
 
-    cursor = connection.cursor()
+        cursor = connection.cursor()
 
-    cursor.execute("""
-        SELECT
-            id,
-            name,
-            phone,
-            business,
-            service,
-            message,
-            created_at,
-            status
-        FROM customers
-        ORDER BY id DESC
-    """)
+        cursor.execute("""
+            SELECT
+                id,
+                name,
+                phone,
+                business,
+                service,
+                message,
+                created_at,
+                status
+            FROM customers
+            ORDER BY id DESC
+        """)
 
-    customers = [
-        dict(row)
-        for row in cursor.fetchall()
-    ]
+        customers = cursor.fetchall()
 
+    else:
+
+        cursor = connection.cursor()
+
+        cursor.execute("""
+            SELECT
+                id,
+                name,
+                phone,
+                business,
+                service,
+                message,
+                created_at,
+                status
+            FROM customers
+            ORDER BY id DESC
+        """)
+
+        rows = cursor.fetchall()
+
+        columns = [
+            "id",
+            "name",
+            "phone",
+            "business",
+            "service",
+            "message",
+            "created_at",
+            "status"
+        ]
+
+        customers = [
+            dict(
+                zip(columns, row)
+            )
+            for row in rows
+        ]
+
+    cursor.close()
     connection.close()
 
     return customers
 
 
-# =========================
+# ==================================================
 # DELETE CUSTOMER
-# =========================
+# ==================================================
 
 @app.delete("/customers/{customer_id}")
 def delete_customer(
@@ -277,22 +385,34 @@ def delete_customer(
             detail="גישה לא מורשית"
         )
 
-    connection = sqlite3.connect("customers.db")
-
+    connection = get_connection()
     cursor = connection.cursor()
 
-    cursor.execute(
-        """
-        DELETE FROM customers
-        WHERE id = ?
-        """,
-        (customer_id,)
-    )
+    if USE_POSTGRES:
 
-    connection.commit()
+        cursor.execute(
+            """
+            DELETE FROM customers
+            WHERE id = %s
+            """,
+            (customer_id,)
+        )
+
+    else:
+
+        cursor.execute(
+            """
+            DELETE FROM customers
+            WHERE id = ?
+            """,
+            (customer_id,)
+        )
 
     deleted = cursor.rowcount
 
+    connection.commit()
+
+    cursor.close()
     connection.close()
 
     if deleted == 0:
@@ -308,9 +428,9 @@ def delete_customer(
     }
 
 
-# =========================
-# UPDATE CUSTOMER STATUS
-# =========================
+# ==================================================
+# UPDATE STATUS
+# ==================================================
 
 @app.put("/customers/{customer_id}/status")
 def update_customer_status(
@@ -339,26 +459,42 @@ def update_customer_status(
             detail="סטטוס לא חוקי"
         )
 
-    connection = sqlite3.connect("customers.db")
-
+    connection = get_connection()
     cursor = connection.cursor()
 
-    cursor.execute(
-        """
-        UPDATE customers
-        SET status = ?
-        WHERE id = ?
-        """,
-        (
-            status,
-            customer_id
-        )
-    )
+    if USE_POSTGRES:
 
-    connection.commit()
+        cursor.execute(
+            """
+            UPDATE customers
+            SET status = %s
+            WHERE id = %s
+            """,
+            (
+                status,
+                customer_id
+            )
+        )
+
+    else:
+
+        cursor.execute(
+            """
+            UPDATE customers
+            SET status = ?
+            WHERE id = ?
+            """,
+            (
+                status,
+                customer_id
+            )
+        )
 
     updated = cursor.rowcount
 
+    connection.commit()
+
+    cursor.close()
     connection.close()
 
     if updated == 0:
@@ -371,4 +507,17 @@ def update_customer_status(
     return {
         "success": True,
         "message": "הסטטוס עודכן בהצלחה"
+    }
+
+
+# ==================================================
+# HEALTH CHECK
+# ==================================================
+
+@app.get("/health")
+def health():
+
+    return {
+        "status": "ok",
+        "database": "postgresql" if USE_POSTGRES else "sqlite"
     }
