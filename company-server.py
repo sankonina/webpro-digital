@@ -1,6 +1,7 @@
 import os
 import sqlite3
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -161,9 +162,13 @@ def save_customer(customer: Customer):
     connection = get_connection()
     cursor = connection.cursor()
 
-    created_at = datetime.now().strftime(
-        "%d/%m/%Y %H:%M"
-    )
+israel_time = datetime.now(
+    ZoneInfo("Asia/Jerusalem")
+)
+
+created_at = israel_time.strftime(
+    "%d/%m/%Y %H:%M"
+)
 
     if USE_POSTGRES:
 
