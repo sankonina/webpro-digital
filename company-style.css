@@ -1,3 +1,7 @@
+/* ==================================================
+   GLOBAL
+================================================== */
+
 * {
     box-sizing: border-box;
 }
@@ -24,9 +28,7 @@ body {
 
 h1,
 h2,
-h3,
-.logo-text,
-.footer-logo {
+h3 {
     font-family: "Heebo", sans-serif;
 }
 
@@ -44,6 +46,7 @@ textarea {
 
 /* ==================================================
    HEADER
+   NAV RIGHT / LOGO LEFT
 ================================================== */
 
 .main-header {
@@ -53,38 +56,65 @@ textarea {
 
     width: 100%;
 
-    min-height: 78px;
+    padding: 12px 24px;
 
-    padding: 0 6%;
+    background: rgba(2, 6, 23, 0.96);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.header-inner {
+    width: 100%;
+    max-width: 1250px;
+
+    min-height: 58px;
+
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: rgba(2, 6, 23, 0.96);
+    gap: 30px;
 
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.15);
+    direction: ltr;
 }
 
+
+/* =========================
+   LOGO LEFT
+========================= */
+
 .logo-wrap {
+    order: 2;
+
     display: flex;
     align-items: center;
 
     gap: 10px;
 
+    flex-shrink: 0;
+
     direction: ltr;
+
+    color: white;
+
+    text-decoration: none;
 }
 
 .logo-mark {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    border-radius: 13px;
 
     background:
         linear-gradient(
@@ -95,9 +125,11 @@ textarea {
 
     color: white;
 
-    font-family: "Space Grotesk", sans-serif;
+    font-family:
+        "Space Grotesk",
+        sans-serif;
 
-    font-size: 22px;
+    font-size: 23px;
     font-weight: 700;
 
     box-shadow:
@@ -105,13 +137,17 @@ textarea {
 }
 
 .logo-text {
-    font-family: "Space Grotesk", sans-serif;
+    font-family:
+        "Space Grotesk",
+        sans-serif;
 
     color: white;
 
-    font-size: 27px;
+    font-size: 28px;
 
     font-weight: 700;
+
+    line-height: 1;
 
     letter-spacing: -1px;
 }
@@ -120,25 +156,109 @@ textarea {
     color: #60a5fa;
 }
 
-.main-header nav {
+
+/* =========================
+   NAV RIGHT
+========================= */
+
+.main-nav {
+    order: 1;
+
+    flex: 1;
+
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 
-    gap: 23px;
+    gap: 4px;
 
-    flex-wrap: wrap;
+    direction: rtl;
 }
 
-.main-header nav a {
+.nav-link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 13px;
+
+    border-radius: 9px;
+
     color: #cbd5e1;
 
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 500;
 
-    transition: 0.2s;
+    white-space: nowrap;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s,
+        background 0.2s,
+        transform 0.2s;
 }
 
-.main-header nav a:hover {
+.nav-link:hover {
     color: white;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    color: white;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+.nav-contact {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 8px;
+
+    padding: 11px 19px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 8px 22px
+        rgba(37, 99, 235, 0.25);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.nav-contact:hover {
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(37, 99, 235, 0.35);
 }
 
 
@@ -198,9 +318,11 @@ textarea {
 
 .hero-content {
     position: relative;
+
     z-index: 2;
 
     width: 100%;
+
     max-width: 1000px;
 
     margin: 0 auto;
@@ -216,20 +338,11 @@ textarea {
     border-radius: 999px;
 
     border:
-        1px solid rgba(
-            147,
-            197,
-            253,
-            0.25
-        );
+        1px solid
+        rgba(147, 197, 253, 0.25);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.08
-        );
+        rgba(255, 255, 255, 0.08);
 
     color: #bfdbfe;
 
@@ -240,11 +353,7 @@ textarea {
     margin: 0 0 25px;
 
     font-size:
-        clamp(
-            44px,
-            6vw,
-            78px
-        );
+        clamp(44px, 6vw, 78px);
 
     line-height: 1.08;
 
@@ -272,6 +381,7 @@ textarea {
 
 .hero-text {
     width: 100%;
+
     max-width: 800px;
 
     margin: 0 auto;
@@ -348,19 +458,21 @@ textarea {
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.35);
+        rgba(255,255,255,0.35);
 
     background:
-        rgba(255, 255, 255, 0.07);
+        rgba(255,255,255,0.07);
 }
 
 .second-button:hover {
     background: white;
+
     color: #0f172a;
 }
 
 .hero-mini-stats {
     width: 100%;
+
     max-width: 760px;
 
     margin: 65px auto 0;
@@ -372,7 +484,7 @@ textarea {
 
     border-top:
         1px solid
-        rgba(255, 255, 255, 0.15);
+        rgba(255,255,255,0.15);
 }
 
 .hero-mini-stats div {
@@ -380,7 +492,7 @@ textarea {
 
     border-left:
         1px solid
-        rgba(255, 255, 255, 0.12);
+        rgba(255,255,255,0.12);
 }
 
 .hero-mini-stats div:last-child {
@@ -416,6 +528,7 @@ textarea {
 
 .intro-content {
     width: 100%;
+
     max-width: 850px;
 
     margin: 0 auto;
@@ -433,11 +546,7 @@ textarea {
     margin: 10px 0 15px;
 
     font-size:
-        clamp(
-            32px,
-            4vw,
-            50px
-        );
+        clamp(32px, 4vw, 50px);
 
     line-height: 1.2;
 }
@@ -460,6 +569,7 @@ textarea {
 .ai-section,
 .final-cta {
     width: 100%;
+
     max-width: 100%;
 
     padding-left: 24px;
@@ -468,11 +578,13 @@ textarea {
 
 .section {
     padding-top: 110px;
+
     padding-bottom: 110px;
 }
 
 .section-heading {
     width: 100%;
+
     max-width: 850px;
 
     margin: 0 auto 60px;
@@ -499,25 +611,19 @@ textarea {
     margin: 0 0 15px;
 
     font-size:
-        clamp(
-            32px,
-            4vw,
-            50px
-        );
+        clamp(32px, 4vw, 50px);
 
     line-height: 1.2;
 
     font-weight: 800;
-
-    letter-spacing: -0.7px;
 }
 
 .section-heading p {
-    margin: 0;
-
     color: #64748b;
 
     font-size: 18px;
+
+    margin: 0;
 }
 
 
@@ -531,6 +637,7 @@ textarea {
 
 .services-grid {
     width: 100%;
+
     max-width: 1200px;
 
     margin: 0 auto;
@@ -538,10 +645,7 @@ textarea {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+        repeat(2, minmax(0, 1fr));
 
     gap: 28px;
 }
@@ -560,7 +664,7 @@ textarea {
 
     box-shadow:
         0 15px 40px
-        rgba(15, 23, 42, 0.07);
+        rgba(15,23,42,0.07);
 
     transition: 0.25s;
 }
@@ -570,7 +674,7 @@ textarea {
 
     box-shadow:
         0 20px 50px
-        rgba(15, 23, 42, 0.13);
+        rgba(15,23,42,0.13);
 }
 
 .service-image {
@@ -582,17 +686,18 @@ textarea {
 }
 
 .service-image img {
-    display: block;
-
     width: 100%;
     height: 100%;
+
+    display: block;
 
     object-fit: cover;
 
     transition: 0.4s;
 }
 
-.service-card:hover .service-image img {
+.service-card:hover
+.service-image img {
     transform: scale(1.06);
 }
 
@@ -605,6 +710,7 @@ textarea {
     height: 55px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -624,9 +730,9 @@ textarea {
 }
 
 .service-card p {
-    margin: 0 0 20px;
-
     color: #64748b;
+
+    margin: 0 0 20px;
 
     line-height: 1.8;
 }
@@ -639,7 +745,7 @@ textarea {
 
 
 /* ==================================================
-   AI SECTION
+   AI PREMIUM SECTION
 ================================================== */
 
 .ai-section {
@@ -651,12 +757,12 @@ textarea {
     background:
         radial-gradient(
             circle at 10% 20%,
-            rgba(37, 99, 235, 0.18),
+            rgba(37,99,235,0.18),
             transparent 28%
         ),
         radial-gradient(
             circle at 90% 80%,
-            rgba(124, 58, 237, 0.16),
+            rgba(124,58,237,0.16),
             transparent 28%
         ),
         #020617;
@@ -676,12 +782,7 @@ textarea {
     border-radius: 50%;
 
     background:
-        rgba(
-            59,
-            130,
-            246,
-            0.12
-        );
+        rgba(59,130,246,0.12);
 
     filter: blur(100px);
 
@@ -690,9 +791,11 @@ textarea {
 
 .ai-content {
     position: relative;
+
     z-index: 2;
 
     width: 100%;
+
     max-width: 1100px;
 
     margin: 0 auto;
@@ -709,37 +812,27 @@ textarea {
 
     padding: 26px;
 
-    border-radius: 30px;
-
     border:
         1px solid
-        rgba(
-            96,
-            165,
-            250,
-            0.22
-        );
+        rgba(96,165,250,0.22);
+
+    border-radius: 30px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(15, 23, 42, 0.98),
-            rgba(30, 41, 59, 0.96)
+            rgba(15,23,42,0.98),
+            rgba(30,41,59,0.96)
         );
 
     box-shadow:
         0 30px 80px
-        rgba(0, 0, 0, 0.35),
-
-        0 0 60px
-        rgba(37, 99, 235, 0.08);
+        rgba(0,0,0,0.35);
 }
-
-
-/* AI IMAGE */
 
 .ai-image-box {
     width: 100%;
+
     min-width: 0;
 
     padding: 8px;
@@ -768,10 +861,11 @@ textarea {
 }
 
 .ai-image-frame img {
-    display: block;
-
     width: 100%;
+
     height: 430px;
+
+    display: block;
 
     object-fit: cover;
 
@@ -795,18 +889,13 @@ textarea {
     border-radius: 14px;
 
     background:
-        rgba(
-            2,
-            6,
-            23,
-            0.82
-        );
-
-    backdrop-filter: blur(10px);
+        rgba(2,6,23,0.82);
 
     border:
         1px solid
         rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(10px);
 }
 
 .ai-image-overlay span {
@@ -822,8 +911,6 @@ textarea {
 .ai-image-overlay strong {
     display: block;
 
-    margin-top: 4px;
-
     color: white;
 
     font-family:
@@ -831,13 +918,13 @@ textarea {
         sans-serif;
 
     font-size: 23px;
+
+    margin-top: 4px;
 }
-
-
-/* AI TEXT */
 
 .ai-text {
     width: 100%;
+
     min-width: 0;
 }
 
@@ -853,21 +940,11 @@ textarea {
     color: #93c5fd;
 
     background:
-        rgba(
-            59,
-            130,
-            246,
-            0.10
-        );
+        rgba(59,130,246,0.1);
 
     border:
         1px solid
-        rgba(
-            96,
-            165,
-            250,
-            0.20
-        );
+        rgba(96,165,250,0.2);
 
     font-size: 13px;
 }
@@ -878,11 +955,7 @@ textarea {
     color: white;
 
     font-size:
-        clamp(
-            34px,
-            4vw,
-            52px
-        );
+        clamp(34px,4vw,52px);
 
     line-height: 1.15;
 }
@@ -914,19 +987,13 @@ textarea {
     line-height: 1.8;
 }
 
-
-/* AI FEATURES */
-
 .ai-features {
     width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+        repeat(2, minmax(0, 1fr));
 
     gap: 12px;
 
@@ -947,21 +1014,11 @@ textarea {
     border-radius: 13px;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.04
-        );
+        rgba(255,255,255,0.04);
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.08
-        );
+        rgba(255,255,255,0.08);
 
     transition: 0.2s;
 }
@@ -970,20 +1027,10 @@ textarea {
     transform: translateY(-2px);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.07
-        );
+        rgba(255,255,255,0.07);
 
     border-color:
-        rgba(
-            96,
-            165,
-            250,
-            0.25
-        );
+        rgba(96,165,250,0.25);
 }
 
 .ai-feature-icon {
@@ -1002,8 +1049,8 @@ textarea {
     background:
         linear-gradient(
             135deg,
-            rgba(37, 99, 235, 0.25),
-            rgba(124, 58, 237, 0.25)
+            rgba(37,99,235,0.25),
+            rgba(124,58,237,0.25)
         );
 
     font-size: 20px;
@@ -1027,14 +1074,10 @@ textarea {
     line-height: 1.4;
 }
 
-
-/* AI BUTTON */
-
 .ai-button {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 10px;
@@ -1062,7 +1105,7 @@ textarea {
 
     box-shadow:
         0 12px 30px
-        rgba(37, 99, 235, 0.3);
+        rgba(37,99,235,0.3);
 }
 
 
@@ -1076,6 +1119,7 @@ textarea {
 
 .why-grid {
     width: 100%;
+
     max-width: 1150px;
 
     margin: 0 auto;
@@ -1083,10 +1127,7 @@ textarea {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(0, 1fr)
-        );
+        repeat(4, minmax(0, 1fr));
 
     gap: 20px;
 }
@@ -1138,6 +1179,7 @@ textarea {
 
 .process-grid {
     width: 100%;
+
     max-width: 1100px;
 
     margin: 0 auto;
@@ -1145,10 +1187,7 @@ textarea {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(0, 1fr)
-        );
+        repeat(4, minmax(0, 1fr));
 
     gap: 20px;
 }
@@ -1203,18 +1242,17 @@ textarea {
     color: white;
 }
 
-.portfolio-section
-.section-heading > span {
+.portfolio-section .section-heading > span {
     color: #60a5fa;
 }
 
-.portfolio-section
-.section-heading p {
+.portfolio-section .section-heading p {
     color: #94a3b8;
 }
 
 .portfolio-grid {
     width: 100%;
+
     max-width: 1200px;
 
     margin: 0 auto;
@@ -1222,10 +1260,7 @@ textarea {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+        repeat(2, minmax(0, 1fr));
 
     gap: 25px;
 }
@@ -1267,7 +1302,7 @@ textarea {
     background:
         linear-gradient(
             transparent 30%,
-            rgba(2, 6, 23, 0.92)
+            rgba(2,6,23,0.92)
         );
 }
 
@@ -1316,6 +1351,7 @@ textarea {
 
 .pricing-grid {
     width: 100%;
+
     max-width: 1100px;
 
     margin: 0 auto;
@@ -1323,10 +1359,7 @@ textarea {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            minmax(0, 1fr)
-        );
+        repeat(3, minmax(0, 1fr));
 
     gap: 25px;
 }
@@ -1347,7 +1380,7 @@ textarea {
 
     box-shadow:
         0 10px 30px
-        rgba(15, 23, 42, 0.05);
+        rgba(15,23,42,0.05);
 }
 
 .price-card.featured {
@@ -1359,7 +1392,7 @@ textarea {
 
     box-shadow:
         0 20px 50px
-        rgba(37, 99, 235, 0.15);
+        rgba(37,99,235,0.15);
 }
 
 .price-tag {
@@ -1445,6 +1478,7 @@ textarea {
 
 .about-content {
     width: 100%;
+
     max-width: 1150px;
 
     margin: 0 auto;
@@ -1488,7 +1522,7 @@ textarea {
 
     box-shadow:
         0 25px 60px
-        rgba(15, 23, 42, 0.18);
+        rgba(15,23,42,0.18);
 }
 
 .about-badge {
@@ -1502,12 +1536,7 @@ textarea {
     border-radius: 14px;
 
     background:
-        rgba(
-            2,
-            6,
-            23,
-            0.9
-        );
+        rgba(2,6,23,0.9);
 
     color: white;
 }
@@ -1537,6 +1566,7 @@ textarea {
 
 .faq-grid {
     width: 100%;
+
     max-width: 900px;
 
     margin: 0 auto;
@@ -1577,16 +1607,16 @@ textarea {
 ================================================== */
 
 .contact-section {
-    color: white;
-
     padding-top: 110px;
     padding-bottom: 110px;
+
+    color: white;
 
     background:
         linear-gradient(
             135deg,
-            rgba(2, 6, 23, 0.97),
-            rgba(30, 64, 175, 0.95)
+            rgba(2,6,23,0.97),
+            rgba(30,64,175,0.95)
         ),
         url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2200&q=80")
         center / cover;
@@ -1594,6 +1624,7 @@ textarea {
 
 .contact-content {
     width: 100%;
+
     max-width: 1150px;
 
     margin: 0 auto;
@@ -1601,8 +1632,8 @@ textarea {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 0.9fr)
-        minmax(0, 1.1fr);
+        minmax(0,0.9fr)
+        minmax(0,1.1fr);
 
     gap: 70px;
 
@@ -1659,7 +1690,7 @@ textarea {
 
     box-shadow:
         0 25px 70px
-        rgba(0, 0, 0, 0.22);
+        rgba(0,0,0,0.22);
 }
 
 .contact-form input,
@@ -1694,12 +1725,7 @@ textarea {
 
     box-shadow:
         0 0 0 3px
-        rgba(
-            37,
-            99,
-            235,
-            0.1
-        );
+        rgba(37,99,235,0.1);
 }
 
 .contact-form button {
@@ -1771,6 +1797,7 @@ footer {
 
 .footer-content {
     width: 100%;
+
     max-width: 1150px;
 
     margin: 0 auto;
@@ -1778,9 +1805,9 @@ footer {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1.5fr)
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+        minmax(0,1.5fr)
+        minmax(0,1fr)
+        minmax(0,1fr);
 
     gap: 50px;
 }
@@ -1852,6 +1879,7 @@ footer {
 
 .copyright {
     width: 100%;
+
     max-width: 1150px;
 
     margin: 40px auto 0;
@@ -1870,24 +1898,106 @@ footer {
 
 
 /* ==================================================
+   FLOATING WHATSAPP
+================================================== */
+
+.floating-whatsapp {
+    position: fixed;
+
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-height: 58px;
+
+    padding:
+        8px 18px
+        8px 10px;
+
+    border-radius: 999px;
+
+    background: #25D366;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 35px
+        rgba(37,211,102,0.35);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.floating-whatsapp:hover {
+    color: white;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(37,211,102,0.45);
+}
+
+.whatsapp-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #25D366;
+
+    font-size: 21px;
+
+    flex-shrink: 0;
+}
+
+.whatsapp-text {
+    white-space: nowrap;
+}
+
+
+/* ==================================================
    TABLET
 ================================================== */
 
 @media (max-width: 1050px) {
 
     .main-header {
-        padding:
-            15px 24px;
-
-        flex-wrap: wrap;
-
-        gap: 15px;
+        padding: 12px 18px;
     }
 
-    .main-header nav {
-        gap: 12px;
+    .header-inner {
+        gap: 18px;
+    }
 
-        justify-content: center;
+    .nav-link {
+        padding: 8px 9px;
+
+        font-size: 13px;
+    }
+
+    .nav-contact {
+        padding: 9px 13px;
     }
 
     .why-grid,
@@ -1895,13 +2005,12 @@ footer {
         grid-template-columns:
             repeat(
                 2,
-                minmax(0, 1fr)
+                minmax(0,1fr)
             );
     }
 
     .pricing-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         max-width: 650px;
     }
@@ -1909,7 +2018,6 @@ footer {
     .price-card.featured {
         transform: none;
     }
-
 }
 
 
@@ -1930,7 +2038,6 @@ footer {
     .ai-image-frame img {
         height: 380px;
     }
-
 }
 
 
@@ -1941,24 +2048,49 @@ footer {
 @media (max-width: 700px) {
 
     .main-header {
-        padding:
-            18px 18px;
+        position: relative;
 
-        flex-direction: column;
-
-        gap: 15px;
+        padding: 14px 16px;
     }
 
-    .main-header nav {
+    .header-inner {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 14px;
+    }
+
+    .logo-wrap {
+        order: 1;
+    }
+
+    .main-nav {
+        order: 2;
+
         width: 100%;
+
+        flex: none;
 
         justify-content: center;
 
         flex-wrap: wrap;
+
+        gap: 4px;
     }
 
-    .main-header nav a {
-        font-size: 13px;
+    .nav-link {
+        padding: 7px 8px;
+
+        font-size: 12px;
+    }
+
+    .nav-contact {
+        margin-right: 0;
+
+        padding: 8px 11px;
+
+        font-size: 12px;
     }
 
     .hero {
@@ -2023,9 +2155,9 @@ footer {
     .ai-content {
         padding: 16px;
 
-        border-radius: 22px;
-
         gap: 25px;
+
+        border-radius: 22px;
     }
 
     .ai-image-frame img {
@@ -2060,6 +2192,7 @@ footer {
 
     .contact-section {
         padding-top: 80px;
+
         padding-bottom: 80px;
     }
 
@@ -2072,284 +2205,25 @@ footer {
 
         gap: 30px;
     }
-/* ==================================================
-   FINAL HEADER LAYOUT
-================================================== */
 
-.main-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    .floating-whatsapp {
+        right: 16px;
+        bottom: 16px;
 
-    width: 100%;
+        width: 58px;
+        min-height: 58px;
 
-    padding: 12px 24px;
-
-    background: rgba(2, 6, 23, 0.96);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.header-inner {
-    width: 100%;
-    max-width: 1250px;
-    min-height: 58px;
-
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-
-    direction: ltr;
-
-    gap: 35px;
-}
-
-
-/* =========================
-   LOGO LEFT
-========================= */
-
-.logo-wrap {
-    order: 1;
-
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    flex-shrink: 0;
-
-    direction: ltr;
-
-    margin-left: auto;
-}
-
-.logo-mark {
-    width: 44px;
-    height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 13px;
-
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #7c3aed
-    );
-
-    color: white;
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 23px;
-    font-weight: 700;
-}
-
-.logo-text {
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 28px;
-    font-weight: 700;
-
-    color: white;
-
-    line-height: 1;
-}
-
-.logo-text span {
-    color: #60a5fa;
-}
-
-
-/* =========================
-   NAV RIGHT
-========================= */
-
-.main-nav {
-    order: 2;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    flex: 0 1 auto;
-
-    gap: 5px;
-
-    direction: rtl;
-}
-
-.nav-link {
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 10px 12px;
-
-    border-radius: 9px;
-
-    color: #cbd5e1;
-
-    font-size: 14px;
-    font-weight: 500;
-
-    white-space: nowrap;
-
-    transition: 0.2s;
-}
-
-.nav-link:hover {
-    color: white;
-
-    background: rgba(255,255,255,0.06);
-}
-
-.nav-link.active {
-    color: white;
-}
-
-.nav-contact {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 11px 19px;
-
-    margin-right: 5px;
-
-    border-radius: 10px;
-
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #7c3aed
-    );
-
-    color: white;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-.nav-contact:hover {
-    color: white;
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================
-   DESKTOP
-========================= */
-
-@media (min-width: 1001px) {
-
-    .header-inner {
-        justify-content: space-between;
-    }
-
-    .main-nav {
-        order: 1;
-    }
-
-    .logo-wrap {
-        order: 2;
-        margin-left: 0;
-    }
-
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1000px) {
-
-    .header-inner {
-        gap: 15px;
-    }
-
-    .main-nav {
-        flex-wrap: wrap;
-    }
-
-    .nav-link {
-        padding: 8px 9px;
-        font-size: 13px;
-    }
-
-    .nav-contact {
-        padding: 9px 13px;
-    }
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-    .main-header {
-        position: relative;
-
-        padding: 14px 16px;
-    }
-
-    .header-inner {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        gap: 14px;
-    }
-
-    .logo-wrap {
-        order: 1;
-
-        margin: 0;
+        padding: 0;
 
         justify-content: center;
     }
 
-    .main-nav {
-        order: 2;
-
-        width: 100%;
-
-        justify-content: center;
-
-        flex-wrap: wrap;
-
-        gap: 4px;
+    .whatsapp-text {
+        display: none;
     }
 
-    .nav-link {
-        padding: 7px 8px;
-
-        font-size: 12px;
+    .whatsapp-icon {
+        width: 46px;
+        height: 46px;
     }
-
-    .nav-contact {
-        padding: 8px 11px;
-
-        margin: 0;
-    }
-
 }
