@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebPro - ניהול לקוחות</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 25px 8%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #64748b;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        #search {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background: white;
+        }
+
+        button {
+            padding: 13px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .logout {
+            background: #dc2626;
+        }
+
+        .logout:hover {
+            background: #b91c1c;
+        }
+
+        .customers {
+            display: grid;
+            gap: 20px;
+        }
+
+        .customer-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .customer-card h2 {
+            margin-top: 0;
+            color: #1d4ed8;
+            font-size: 24px;
+        }
+
+        .customer-card p {
+            margin: 8px 0;
+            line-height: 1.7;
+        }
+
+        .date {
+            color: #64748b;
+            font-size: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 15px;
+        }
+
+        .count {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #475569;
+            font-weight: bold;
+        }
+
+        .message {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .error {
+            color: #dc2626;
+        }
+
+        .status-select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background: white;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+        }
+
+        .whatsapp-button:hover {
+            background: #15803d;
+        }
+
+        .delete-button {
+            background: #dc2626;
+        }
+
+        .delete-button:hover {
+            background: #b91c1c;
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            .container {
+                margin-top: 25px;
+            }
+
+            .title h2 {
+                font-size: 26px;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .actions a,
+            .actions button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>
+        WebPro - ניהול לקוחות
+    </h1>
+
+</header>
+
+
+<div class="container">
+
+    <div class="title">
+
+        <h2>
+            פניות שהתקבלו
+        </h2>
+
+        <p>
+            כאן תוכל לנהל את כל הפניות שהתקבלו מהאתר.
+        </p>
+
+    </div>
+
+
+    <div class="controls">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="חפש לפי שם, טלפון או עסק"
+            oninput="filterCustomers()"
+        >
+
+        <button onclick="loadCustomers()">
+            רענן רשימת לקוחות
+        </button>
+
+        <button
+            class="logout"
+            onclick="logout()"
+        >
+            יציאה
+        </button>
+
+    </div>
+
+
+    <div
+        id="count"
+        class="count"
+    ></div>
+
+
+    <div
+        id="customers"
+        class="customers"
+    >
+
+        <div class="message">
+            טוען לקוחות...
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let allCustomers = [];
+
+
+/* =========================
+   LOAD CUSTOMERS
+========================= */
+
+async function loadCustomers() {
+
+    const container =
+        document.getElementById("customers");
+
+    const password =
+        sessionStorage.getItem("adminPassword");
+
+
+    if (!password) {
+
+        window.location.href = "/admin";
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+        <div class="message">
+            טוען לקוחות...
+        </div>
+    `;
+
+
+    try {
+
+        const response = await fetch(
+            "/customers-list?password=" +
+            encodeURIComponent(password)
+        );
+
+
+        if (response.status === 401) {
+
+            sessionStorage.removeItem("adminPassword");
+
+            window.location.href = "/admin";
+
+            return;
+
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error("Server error");
+
+        }
+
+
+        allCustomers =
+            await response.json();
+
+
+        displayCustomers(allCustomers);
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        container.innerHTML = `
+            <div class="message error">
+                לא ניתן לטעון את רשימת הלקוחות.
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   DISPLAY CUSTOMERS
+========================= */
+
+function displayCustomers(customers) {
+
+    const container =
+        document.getElementById("customers");
+
+    const count =
+        document.getElementById("count");
+
+
+    count.textContent =
+        "נמצאו " + customers.length + " פניות";
+
+
+    if (customers.length === 0) {
+
+        container.innerHTML = `
+            <div class="message">
+                לא נמצאו לקוחות.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    customers.forEach(function(customer) {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "customer-card";
+
+
+        const whatsappNumber =
+            customer.phone
+                .replace(/\D/g, "")
+                .replace(/^0/, "972");
+
+
+        card.innerHTML = `
+
+            <h2>
+                ${escapeHtml(customer.name)}
+            </h2>
+
+            <p>
+                <strong>טלפון:</strong>
+                ${escapeHtml(customer.phone)}
+            </p>
+
+            <p>
+                <strong>שם העסק:</strong>
+                ${escapeHtml(
+                    customer.business || "לא נמסר"
+                )}
+            </p>
+
+            <p>
+                <strong>שירות:</strong>
+                ${escapeHtml(
+                    customer.service || "לא נבחר"
+                )}
+            </p>
+
+            <p>
+                <strong>הודעה:</strong>
+                ${escapeHtml(
+                    customer.message || "לא נמסרה הודעה"
+                )}
+            </p>
+
+            <p class="date">
+                <strong>התקבל:</strong>
+                ${escapeHtml(
+                    customer.created_at || "לא ידוע"
+                )}
+            </p>
+
+            <p>
+                <strong>סטטוס:</strong>
+            </p>
+
+            <select
+                class="status-select"
+                onchange="updateStatus(
+                    ${customer.id},
+                    this.value
+                )"
+            >
+
+                <option
+                    value="חדש"
+                    ${customer.status === "חדש" ? "selected" : ""}
+                >
+                    חדש
+                </option>
+
+                <option
+                    value="בטיפול"
+                    ${customer.status === "בטיפול" ? "selected" : ""}
+                >
+                    בטיפול
+                </option>
+
+                <option
+                    value="הושלם"
+                    ${customer.status === "הושלם" ? "selected" : ""}
+                >
+                    הושלם
+                </option>
+
+            </select>
+
+            <div class="actions">
+
+                <a
+                    class="whatsapp-button"
+                    href="https://wa.me/${whatsappNumber}"
+                    target="_blank"
+                >
+                    פתח WhatsApp
+                </a>
+
+                <button
+                    class="delete-button"
+                    onclick="deleteCustomer(${customer.id})"
+                >
+                    מחק לקוח
+                </button>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function filterCustomers() {
+
+    const searchText =
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const filtered =
+        allCustomers.filter(function(customer) {
+
+            const name =
+                (customer.name || "")
+                    .toLowerCase();
+
+            const phone =
+                (customer.phone || "")
+                    .toLowerCase();
+
+            const business =
+                (customer.business || "")
+                    .toLowerCase();
+
+
+            return (
+                name.includes(searchText) ||
+                phone.includes(searchText) ||
+                business.includes(searchText)
+            );
+
+        });
+
+
+    displayCustomers(filtered);
+
+}
+
+
+/* =========================
+   UPDATE STATUS
+========================= */
+
+async function updateStatus(customerId, status) {
+
+    const password =
+        sessionStorage.getItem("adminPassword");
+
+
+    if (!password) {
+
+        window.location.href = "/admin";
+
+        return;
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "/customers/" +
+            customerId +
+            "/status?status=" +
+            encodeURIComponent(status) +
+            "&password=" +
+            encodeURIComponent(password),
+            {
+                method: "PUT"
+            }
+        );
+
+
+        if (response.status === 401) {
+
+            sessionStorage.removeItem("adminPassword");
+
+            window.location.href = "/admin";
+
+            return;
+
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error("Status update failed");
+
+        }
+
+
+        await loadCustomers();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("לא ניתן לעדכן את הסטטוס.");
+
+    }
+
+}
+
+
+/* =========================
+   DELETE CUSTOMER
+========================= */
+
+async function deleteCustomer(customerId) {
+
+    const confirmed =
+        confirm(
+            "האם אתה בטוח שאתה רוצה למחוק את הלקוח?"
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    const password =
+        sessionStorage.getItem("adminPassword");
+
+
+    if (!password) {
+
+        window.location.href = "/admin";
+
+        return;
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "/customers/" +
+            customerId +
+            "?password=" +
+            encodeURIComponent(password),
+            {
+                method: "DELETE"
+            }
+        );
+
+
+        if (response.status === 401) {
+
+            sessionStorage.removeItem("adminPassword");
+
+            window.location.href = "/admin";
+
+            return;
+
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error("Delete failed");
+
+        }
+
+
+        await loadCustomers();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("לא ניתן למחוק את הלקוח.");
+
+    }
+
+}
+
+
+/* =========================
+   HTML SECURITY
+========================= */
+
+function escapeHtml(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = value;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+    sessionStorage.removeItem(
+        "adminPassword"
+    );
+
+    window.location.href = "/admin";
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadCustomers();
+
+</script>
+
+</body>
+
+</html>
