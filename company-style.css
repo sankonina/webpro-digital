@@ -2072,5 +2072,284 @@ footer {
 
         gap: 30px;
     }
+/* ==================================================
+   FINAL HEADER LAYOUT
+================================================== */
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    padding: 12px 24px;
+
+    background: rgba(2, 6, 23, 0.96);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header-inner {
+    width: 100%;
+    max-width: 1250px;
+    min-height: 58px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    direction: ltr;
+
+    gap: 35px;
+}
+
+
+/* =========================
+   LOGO LEFT
+========================= */
+
+.logo-wrap {
+    order: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    direction: ltr;
+
+    margin-left: auto;
+}
+
+.logo-mark {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.logo-text {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: white;
+
+    line-height: 1;
+}
+
+.logo-text span {
+    color: #60a5fa;
+}
+
+
+/* =========================
+   NAV RIGHT
+========================= */
+
+.main-nav {
+    order: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex: 0 1 auto;
+
+    gap: 5px;
+
+    direction: rtl;
+}
+
+.nav-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 12px;
+
+    border-radius: 9px;
+
+    color: #cbd5e1;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: 0.2s;
+}
+
+.nav-link:hover {
+    color: white;
+
+    background: rgba(255,255,255,0.06);
+}
+
+.nav-link.active {
+    color: white;
+}
+
+.nav-contact {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 19px;
+
+    margin-right: 5px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.nav-contact:hover {
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 1001px) {
+
+    .header-inner {
+        justify-content: space-between;
+    }
+
+    .main-nav {
+        order: 1;
+    }
+
+    .logo-wrap {
+        order: 2;
+        margin-left: 0;
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .header-inner {
+        gap: 15px;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        padding: 8px 9px;
+        font-size: 13px;
+    }
+
+    .nav-contact {
+        padding: 9px 13px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .main-header {
+        position: relative;
+
+        padding: 14px 16px;
+    }
+
+    .header-inner {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 14px;
+    }
+
+    .logo-wrap {
+        order: 1;
+
+        margin: 0;
+
+        justify-content: center;
+    }
+
+    .main-nav {
+        order: 2;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 4px;
+    }
+
+    .nav-link {
+        padding: 7px 8px;
+
+        font-size: 12px;
+    }
+
+    .nav-contact {
+        padding: 8px 11px;
+
+        margin: 0;
+    }
 
 }
