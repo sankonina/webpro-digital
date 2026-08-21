@@ -162,14 +162,71 @@ def save_customer(customer: Customer):
     connection = get_connection()
     cursor = connection.cursor()
 
-israel_time = datetime.now(
-    ZoneInfo("Asia/Jerusalem")
-)
+    israel_time = datetime.now(
+        ZoneInfo("Asia/Jerusalem")
+    )
 
-created_at = israel_time.strftime(
-    "%d/%m/%Y %H:%M"
-)
+    created_at = israel_time.strftime(
+        "%d/%m/%Y %H:%M"
+    )
 
+    if USE_POSTGRES:
+
+        cursor.execute("""
+            INSERT INTO customers
+            (
+                name,
+                phone,
+                business,
+                service,
+                message,
+                created_at,
+                status
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """, (
+            customer.name,
+            customer.phone,
+            customer.business,
+            customer.service,
+            customer.message,
+            created_at,
+            "חדש"
+        ))
+
+    else:
+
+        cursor.execute("""
+            INSERT INTO customers
+            (
+                name,
+                phone,
+                business,
+                service,
+                message,
+                created_at,
+                status
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            customer.name,
+            customer.phone,
+            customer.business,
+            customer.service,
+            customer.message,
+            created_at,
+            "חדש"
+        ))
+
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+    return {
+        "success": True,
+        "message": "הפרטים נשמרו בהצלחה"
+    }
     if USE_POSTGRES:
 
         cursor.execute("""
