@@ -18,7 +18,12 @@ def google_verification():
         "google95eac2fcd01cf588.html",
         media_type="text/html"
     )
-
+@app.get("/robots.txt", include_in_schema=False)
+def robots_txt():
+    return FileResponse(
+        "robots.txt",
+        media_type="text/plain"
+    )
 # ==================================================
 # SETTINGS
 # ==================================================
