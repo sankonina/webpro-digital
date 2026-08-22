@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>פיתוח AI לעסקים | WebPro Digital</title>
+
+    <meta
+        name="description"
+        content="פיתוח פתרונות AI לעסקים עם WebPro Digital. צ'אטבוטים חכמים, אוטומציות, חיבורי API, ניתוח מידע ושילוב בינה מלאכותית במערכות קיימות."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://webpro-digital.onrender.com/ai-development"
+    >
+
+    <meta
+        property="og:title"
+        content="פיתוח AI לעסקים | WebPro Digital"
+    >
+
+    <meta
+        property="og:description"
+        content="פתרונות בינה מלאכותית, צ'אטבוטים, אוטומציות וחיבורי API לעסקים."
+    >
+
+    <meta
+        property="og:url"
+        content="https://webpro-digital.onrender.com/ai-development"
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:image"
+        content="https://webpro-digital.onrender.com/logo.svg"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/company-style.css"
+    >
+
+    <style>
+        .ai-page {
+            min-height: 100vh;
+            background: #f8fafc;
+        }
+
+        .ai-hero {
+            padding: 110px 20px 90px;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(124, 58, 237, 0.22),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #020617,
+                    #111827
+                );
+            color: white;
+        }
+
+        .ai-container {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+        }
+
+        .ai-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-bottom: 20px;
+            border-radius: 999px;
+            background: rgba(167, 139, 250, 0.14);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            color: #c4b5fd;
+            font-weight: 700;
+        }
+
+        .ai-hero h1 {
+            margin: 0 0 22px;
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.1;
+        }
+
+        .ai-hero h1 span {
+            color: #a78bfa;
+        }
+
+        .ai-hero p {
+            max-width: 780px;
+            margin: 0 0 32px;
+            color: #cbd5e1;
+            font-size: 20px;
+            line-height: 1.9;
+        }
+
+        .ai-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .ai-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 25px;
+            border-radius: 12px;
+            font-weight: 800;
+            transition: 0.2s ease;
+        }
+
+        .ai-btn-primary {
+            background: #7c3aed;
+            color: white;
+        }
+
+        .ai-btn-primary:hover {
+            transform: translateY(-2px);
+            background: #6d28d9;
+        }
+
+        .ai-btn-secondary {
+            background: white;
+            color: #0f172a;
+        }
+
+        .ai-btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .ai-section {
+            padding: 80px 20px;
+        }
+
+        .ai-section:nth-child(even) {
+            background: white;
+        }
+
+        .ai-title {
+            margin-bottom: 45px;
+            text-align: center;
+        }
+
+        .ai-title h2 {
+            margin: 0 0 12px;
+            font-size: 38px;
+            color: #0f172a;
+        }
+
+        .ai-title p {
+            max-width: 720px;
+            margin: auto;
+            color: #64748b;
+            font-size: 18px;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .ai-card {
+            padding: 30px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .ai-card-icon {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .ai-card h3 {
+            margin: 0 0 10px;
+            color: #0f172a;
+            font-size: 22px;
+        }
+
+        .ai-card p {
+            margin: 0;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .ai-benefits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .ai-benefit {
+            padding: 24px;
+            border-radius: 16px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        .ai-benefit strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #0f172a;
+            font-size: 19px;
+        }
+
+        .ai-benefit span {
+            color: #64748b;
+        }
+
+        .ai-process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .ai-step {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .ai-step-number {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #7c3aed;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .ai-step h3 {
+            margin: 0 0 8px;
+        }
+
+        .ai-step p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .ai-cta {
+            padding: 80px 20px;
+            background: #020617;
+            color: white;
+            text-align: center;
+        }
+
+        .ai-cta h2 {
+            margin: 0 0 15px;
+            font-size: 40px;
+        }
+
+        .ai-cta p {
+            max-width: 650px;
+            margin: 0 auto 28px;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        @media (max-width: 800px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-process {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ai-hero {
+                padding: 80px 20px 65px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .ai-process {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-buttons {
+                flex-direction: column;
+            }
+
+            .ai-btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "פיתוח AI לעסקים | WebPro Digital",
+        "url": "https://webpro-digital.onrender.com/ai-development",
+        "description": "פיתוח פתרונות AI לעסקים עם WebPro Digital.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "WebPro Digital",
+            "url": "https://webpro-digital.onrender.com/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<div class="ai-page">
+
+    <section class="ai-hero">
+
+        <div class="ai-container">
+
+            <div class="ai-badge">
+                WEBPRO DIGITAL · AI
+            </div>
+
+            <h1>
+                פיתוח AI
+                <span>לעסקים</span>
+            </h1>
+
+            <p>
+                בינה מלאכותית יכולה להפוך תהליכים ידניים לאוטומטיים,
+                לשפר את השירות ללקוחות ולעזור לעסק לעבוד בצורה חכמה ויעילה יותר.
+            </p>
+
+            <div class="ai-buttons">
+
+                <a
+                    href="/#contact"
+                    class="ai-btn ai-btn-primary"
+                >
+                    לבניית פתרון AI ←
+                </a>
+
+                <a
+                    href="https://wa.me/972533010326"
+                    class="ai-btn ai-btn-secondary"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="ai-section">
+
+        <div class="ai-container">
+
+            <div class="ai-title">
+
+                <h2>
+                    פתרונות AI שאנחנו יכולים לבנות
+                </h2>
+
+                <p>
+                    שילוב בינה מלאכותית במקומות שבהם היא יכולה ליצור ערך אמיתי לעסק.
+                </p>
+
+            </div>
+
+            <div class="ai-grid">
+
+                <article class="ai-card">
+                    <div class="ai-card-icon">🤖</div>
+
+                    <h3>
+                        צ'אטבוטים חכמים
+                    </h3>
+
+                    <p>
+                        מערכות שיחה שיכולות לענות על שאלות,
+                        לספק מידע ולעזור ללקוחות בתהליכים שונים.
+                    </p>
+                </article>
+
+
+                <article class="ai-card">
+                    <div class="ai-card-icon">⚡</div>
+
+                    <h3>
+                        אוטומציות AI
+                    </h3>
+
+                    <p>
+                        אוטומציה של פעולות חוזרות ותהליכים
+                        שדורשים כיום עבודה ידנית.
+                    </p>
+                </article>
+
+
+                <article class="ai-card">
+                    <div class="ai-card-icon">📊</div>
+
+                    <h3>
+                        ניתוח מידע
+                    </h3>
+
+                    <p>
+                        שימוש ב-AI כדי לעבד מידע ולהפיק ממנו
+                        תובנות שיכולות לעזור בקבלת החלטות.
+                    </p>
+                </article>
+
+
+                <article class="ai-card">
+                    <div class="ai-card-icon">🔌</div>
+
+                    <h3>
+                        חיבורי API
+                    </h3>
+
+                    <p>
+                        שילוב שירותי AI במערכות קיימות
+                        באמצעות APIs וחיבורים מותאמים.
+                    </p>
+                </article>
+
+
+                <article class="ai-card">
+                    <div class="ai-card-icon">🧠</div>
+
+                    <h3>
+                        עוזרים חכמים
+                    </h3>
+
+                    <p>
+                        בניית כלים פנימיים שיכולים לעזור
+                        לעובדים לבצע משימות ולמצוא מידע.
+                    </p>
+                </article>
+
+
+                <article class="ai-card">
+                    <div class="ai-card-icon">🔄</div>
+
+                    <h3>
+                        שילוב AI במערכות קיימות
+                    </h3>
+
+                    <p>
+                        הוספת יכולות AI למערכות ולתהליכים
+                        שכבר קיימים בעסק.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="ai-section">
+
+        <div class="ai-container">
+
+            <div class="ai-title">
+
+                <h2>
+                    מה AI יכול לעשות עבור העסק?
+                </h2>
+
+                <p>
+                    המטרה היא לא להשתמש ב-AI רק בגלל שהוא חדש,
+                    אלא למצוא שימושים שיכולים לחסוך זמן ולשפר תהליכים.
+                </p>
+
+            </div>
+
+            <div class="ai-benefits">
+
+                <div class="ai-benefit">
+                    <strong>⏱️ חיסכון בזמן</strong>
+                    <span>
+                        אוטומציה של פעולות חוזרות ותהליכים ידניים.
+                    </span>
+                </div>
+
+                <div class="ai-benefit">
+                    <strong>💬 שירות מהיר יותר</strong>
+                    <span>
+                        מתן מענה מהיר ללקוחות במקרים המתאימים.
+                    </span>
+                </div>
+
+                <div class="ai-benefit">
+                    <strong>📈 שיפור תהליכים</strong>
+                    <span>
+                        זיהוי מקומות שבהם ניתן לייעל את העבודה.
+                    </span>
+                </div>
+
+                <div class="ai-benefit">
+                    <strong>🔎 עבודה עם מידע</strong>
+                    <span>
+                        עיבוד וניתוח מידע כדי לעזור בקבלת החלטות.
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="ai-section">
+
+        <div class="ai-container">
+
+            <div class="ai-title">
+
+                <h2>
+                    איך מתחילים?
+                </h2>
+
+                <p>
+                    מתחילים מהצורך העסקי ורק אחר כך בוחרים את הטכנולוגיה.
+                </p>
+
+            </div>
+
+            <div class="ai-process">
+
+                <div class="ai-step">
+                    <div class="ai-step-number">1</div>
+
+                    <h3>
+                        אפיון
+                    </h3>
+
+                    <p>
+                        מבינים את הצורך ואת התהליך הקיים.
+                    </p>
+                </div>
+
+                <div class="ai-step">
+                    <div class="ai-step-number">2</div>
+
+                    <h3>
+                        תכנון
+                    </h3>
+
+                    <p>
+                        בוחרים פתרון AI שמתאים למטרה.
+                    </p>
+                </div>
+
+                <div class="ai-step">
+                    <div class="ai-step-number">3</div>
+
+                    <h3>
+                        פיתוח
+                    </h3>
+
+                    <p>
+                        בונים ומחברים את הפתרון למערכות.
+                    </p>
+                </div>
+
+                <div class="ai-step">
+                    <div class="ai-step-number">4</div>
+
+                    <h3>
+                        שיפור
+                    </h3>
+
+                    <p>
+                        בודקים את התוצאה ומשפרים לפי הצורך.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="ai-cta">
+
+        <div class="ai-container">
+
+            <h2>
+                יש לכם רעיון ל-AI?
+            </h2>
+
+            <p>
+                ספרו לנו על התהליך שאתם רוצים לשפר
+                ונבדוק איך אפשר להפוך אותו לפתרון דיגיטלי חכם.
+            </p>
+
+            <div
+                class="ai-buttons"
+                style="justify-content:center;"
+            >
+
+                <a
+                    href="/#contact"
+                    class="ai-btn ai-btn-primary"
+                >
+                    צור קשר
+                </a>
+
+                <a
+                    href="tel:+972533010326"
+                    class="ai-btn ai-btn-secondary"
+                >
+                    📞 053-301-0326
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

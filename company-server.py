@@ -42,6 +42,12 @@ def website_development():
         "website-development.html",
         media_type="text/html"
     )
+@app.get("/ai-development", include_in_schema=False)
+def ai_development():
+    return FileResponse(
+        "ai-development.html",
+        media_type="text/html"
+    )
 # ==================================================
 # SETTINGS
 # ==================================================
