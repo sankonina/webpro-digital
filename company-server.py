@@ -2,7 +2,7 @@ import os
 import sqlite3
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
+from fastapi.responses import FileResponse
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
@@ -12,7 +12,12 @@ from pydantic import BaseModel
 
 
 app = FastAPI()
-
+@app.get("/google95eac2fcd01cf588.html", include_in_schema=False)
+def google_verification():
+    return FileResponse(
+        "google95eac2fcd01cf588.html",
+        media_type="text/html"
+    )
 
 # ==================================================
 # SETTINGS
