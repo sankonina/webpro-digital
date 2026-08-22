@@ -14,7 +14,16 @@
         content="WebPro - בניית אתרים, פיתוח תוכנה, פיתוח AI, אוטומציות, חנויות אונליין וקידום עסקים."
     >
 
-    <title>WebPro | בניית אתרים, פיתוח תוכנה ו-AI</title>
+    <meta
+        name="keywords"
+        content="בניית אתרים, פיתוח תוכנה, פיתוח AI, בינה מלאכותית, אוטומציות, חנות אונליין, קידום עסקים"
+    >
+
+    <meta name="theme-color" content="#020617">
+
+    <title>
+        WebPro | בניית אתרים, פיתוח תוכנה ו-AI
+    </title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -29,7 +38,10 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="company-style.css">
+    <link
+        rel="stylesheet"
+        href="company-style.css"
+    >
 </head>
 
 
@@ -37,29 +49,29 @@
 
 
 <!-- ==================================================
-     FLOATING CONTACT
+     FLOATING ACTIONS
 ================================================== -->
 
 <div class="floating-actions">
 
     <a
         href="https://wa.me/972533010326"
-        class="floating-whatsapp"
+        class="floating-action floating-whatsapp"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp"
+        aria-label="פתח WhatsApp"
     >
-        <span class="floating-icon">💬</span>
-        <strong>WhatsApp</strong>
+        <span class="floating-action-icon">💬</span>
+        <span class="floating-action-label">WhatsApp</span>
     </a>
 
     <a
         href="tel:+972533010326"
-        class="floating-call"
-        aria-label="התקשר"
+        class="floating-action floating-call"
+        aria-label="התקשר אלינו"
     >
-        <span class="floating-icon">📞</span>
-        <strong>התקשר</strong>
+        <span class="floating-action-icon">📞</span>
+        <span class="floating-action-label">התקשר</span>
     </a>
 
 </div>
@@ -69,21 +81,65 @@
      HEADER
 ================================================== -->
 
-<header class="main-header">
+<header class="site-header">
 
     <div class="header-inner">
 
         <nav class="main-nav">
 
-            <a href="#home" class="nav-link active">ראשי</a>
-            <a href="#services" class="nav-link">שירותים</a>
-            <a href="#ai" class="nav-link">AI</a>
-            <a href="#process" class="nav-link">תהליך</a>
-            <a href="#portfolio" class="nav-link">תיק עבודות</a>
-            <a href="#pricing" class="nav-link">חבילות</a>
-            <a href="#about" class="nav-link">אודות</a>
+            <a
+                href="#home"
+                class="nav-link active"
+            >
+                ראשי
+            </a>
 
-            <a href="#contact" class="nav-contact">
+            <a
+                href="#services"
+                class="nav-link"
+            >
+                שירותים
+            </a>
+
+            <a
+                href="#ai"
+                class="nav-link"
+            >
+                AI
+            </a>
+
+            <a
+                href="#process"
+                class="nav-link"
+            >
+                תהליך
+            </a>
+
+            <a
+                href="#portfolio"
+                class="nav-link"
+            >
+                תיק עבודות
+            </a>
+
+            <a
+                href="#pricing"
+                class="nav-link"
+            >
+                חבילות
+            </a>
+
+            <a
+                href="#about"
+                class="nav-link"
+            >
+                אודות
+            </a>
+
+            <a
+                href="#contact"
+                class="nav-contact"
+            >
                 צור קשר
             </a>
 
@@ -92,14 +148,18 @@
 
         <a
             href="#home"
-            class="logo-wrap"
+            class="brand"
             aria-label="WebPro"
         >
-            <div class="logo-mark">W</div>
 
-            <div class="logo-text">
+            <span class="brand-mark">
+                W
+            </span>
+
+            <span class="brand-name">
                 Web<span>Pro</span>
-            </div>
+            </span>
+
         </a>
 
     </div>
@@ -111,36 +171,46 @@
      HERO
 ================================================== -->
 
-<section id="home" class="hero">
+<section
+    id="home"
+    class="hero-section"
+>
 
-    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
 
+
         <div class="hero-badge">
-            🚀 Web • Software • AI
+            🚀 WEB • SOFTWARE • AI
         </div>
+
 
         <h1>
             בונים את הפתרון
             <span>שמקדם את העסק שלך</span>
         </h1>
 
-        <p class="hero-text">
+
+        <p class="hero-description">
             בניית אתרים מקצועיים, פיתוח תוכנה,
-            מערכות AI, חנויות אונליין וקידום עסקים —
-            הכול במקום אחד.
+            פתרונות AI, אוטומציות, חנויות אונליין
+            וקידום עסקים — במקום אחד.
         </p>
 
-        <div class="hero-buttons">
 
-            <a href="#contact" class="main-button">
+        <div class="hero-actions">
+
+            <a
+                href="#contact"
+                class="primary-button"
+            >
                 קבל הצעת מחיר
             </a>
 
             <a
                 href="https://wa.me/972533010326"
-                class="second-button"
+                class="secondary-button"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -149,31 +219,33 @@
 
             <a
                 href="tel:+972533010326"
-                class="call-button"
+                class="phone-button"
             >
                 📞 053-301-0326
             </a>
 
         </div>
 
-        <div class="hero-mini-stats">
 
-            <div>
+        <div class="hero-stats">
+
+            <div class="hero-stat">
                 <strong>Web</strong>
                 <span>אתרים מקצועיים</span>
             </div>
 
-            <div>
+            <div class="hero-stat">
                 <strong>Software</strong>
                 <span>מערכות לעסקים</span>
             </div>
 
-            <div>
+            <div class="hero-stat">
                 <strong>AI</strong>
                 <span>פתרונות חכמים</span>
             </div>
 
         </div>
+
 
     </div>
 
@@ -186,9 +258,9 @@
 
 <section class="intro-section">
 
-    <div class="intro-content">
+    <div class="container intro-content">
 
-        <span>
+        <span class="eyebrow">
             פתרון דיגיטלי במקום אחד
         </span>
 
@@ -198,8 +270,8 @@
 
         <p>
             אנחנו עוזרים לעסקים לבנות נוכחות דיגיטלית,
-            לייעל תהליכים ולהשתמש בטכנולוגיה כדי לעבוד
-            בצורה חכמה יותר.
+            לייעל תהליכים ולהשתמש בטכנולוגיה
+            כדי לעבוד בצורה חכמה יותר.
         </p>
 
     </div>
@@ -211,185 +283,239 @@
      SERVICES
 ================================================== -->
 
-<section id="services" class="section services-section">
+<section
+    id="services"
+    class="section services-section"
+>
 
-    <div class="section-heading">
-
-        <span>השירותים שלנו</span>
-
-        <h2>
-            Web, Software, AI ושיווק
-        </h2>
-
-        <p>
-            שירותים דיגיטליים לעסק — מהאתר הראשון
-            ועד מערכות מתקדמות ובינה מלאכותית.
-        </p>
-
-    </div>
+    <div class="container">
 
 
-    <div class="services-grid">
+        <div class="section-heading">
 
+            <span class="eyebrow">
+                השירותים שלנו
+            </span>
 
-        <div class="service-card">
+            <h2>
+                Web, Software, AI ושיווק
+            </h2>
 
-            <div class="service-image">
-                <img
-                    src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=900&q=80"
-                    alt="בניית אתרים"
-                >
-            </div>
-
-            <div class="service-body">
-
-                <div class="service-icon">🌐</div>
-
-                <h3>בניית אתרים</h3>
-
-                <p>
-                    אתרי תדמית, אתרי עסקים ודפי נחיתה
-                    עם עיצוב מודרני, מהירות והתאמה למחשב ולטלפון.
-                </p>
-
-                <a href="#contact">בניית אתר →</a>
-
-            </div>
+            <p>
+                שירותים דיגיטליים לעסק — מהאתר הראשון
+                ועד מערכות מתקדמות ובינה מלאכותית.
+            </p>
 
         </div>
 
 
-        <div class="service-card">
-
-            <div class="service-image">
-                <img
-                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80"
-                    alt="פיתוח תוכנה"
-                >
-            </div>
-
-            <div class="service-body">
-
-                <div class="service-icon">💻</div>
-
-                <h3>פיתוח תוכנה</h3>
-
-                <p>
-                    מערכות לעסקים, CRM, ניהול לקוחות,
-                    מערכות הזמנות, API ואוטומציות.
-                </p>
-
-                <a href="#contact">פיתוח מערכת →</a>
-
-            </div>
-
-        </div>
+        <div class="services-grid">
 
 
-        <div class="service-card">
+            <article class="service-card">
 
-            <div class="service-image">
-                <img
-                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80"
-                    alt="פיתוח AI"
-                >
-            </div>
+                <div class="service-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1000&q=80"
+                        alt="בניית אתרים"
+                        loading="lazy"
+                    >
+                </div>
 
-            <div class="service-body">
+                <div class="service-content">
 
-                <div class="service-icon">🤖</div>
+                    <div class="service-icon">
+                        🌐
+                    </div>
 
-                <h3>פיתוח AI ובינה מלאכותית</h3>
+                    <h3>
+                        בניית אתרים
+                    </h3>
 
-                <p>
-                    צ'אטבוטים, עוזרים חכמים, אוטומציות,
-                    עיבוד מידע וחיבור למודלי AI.
-                </p>
+                    <p>
+                        אתרי תדמית, אתרי עסקים ודפי נחיתה
+                        עם עיצוב מודרני, מהירות והתאמה מלאה
+                        למחשב ולטלפון.
+                    </p>
 
-                <a href="#ai">פתרונות AI →</a>
+                    <a href="#contact">
+                        בניית אתר →
+                    </a>
 
-            </div>
+                </div>
 
-        </div>
-
-
-        <div class="service-card">
-
-            <div class="service-image">
-                <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
-                    alt="קידום עסקים"
-                >
-            </div>
-
-            <div class="service-body">
-
-                <div class="service-icon">📈</div>
-
-                <h3>קידום עסקים</h3>
-
-                <p>
-                    SEO, תוכן, נוכחות דיגיטלית ושיפור
-                    הדרך שבה לקוחות מוצאים את העסק שלך.
-                </p>
-
-                <a href="#contact">קידום העסק →</a>
-
-            </div>
-
-        </div>
+            </article>
 
 
-        <div class="service-card">
+            <article class="service-card">
 
-            <div class="service-image">
-                <img
-                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
-                    alt="חנות אונליין"
-                >
-            </div>
+                <div class="service-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80"
+                        alt="פיתוח תוכנה"
+                        loading="lazy"
+                    >
+                </div>
 
-            <div class="service-body">
+                <div class="service-content">
 
-                <div class="service-icon">🛒</div>
+                    <div class="service-icon">
+                        💻
+                    </div>
 
-                <h3>חנויות אונליין</h3>
+                    <h3>
+                        פיתוח תוכנה
+                    </h3>
 
-                <p>
-                    חנויות אינטרנטיות, קטלוגים,
-                    הזמנות ותהליכי מכירה.
-                </p>
+                    <p>
+                        מערכות לעסקים, CRM, ניהול לקוחות,
+                        מערכות הזמנות, API ואוטומציות.
+                    </p>
 
-                <a href="#contact">בניית חנות →</a>
+                    <a href="#contact">
+                        פיתוח מערכת →
+                    </a>
 
-            </div>
+                </div>
 
-        </div>
+            </article>
 
 
-        <div class="service-card">
+            <article class="service-card featured-service">
 
-            <div class="service-image">
-                <img
-                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
-                    alt="אוטומציה"
-                >
-            </div>
+                <div class="service-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1000&q=80"
+                        alt="פיתוח AI"
+                        loading="lazy"
+                    >
+                </div>
 
-            <div class="service-body">
+                <div class="service-content">
 
-                <div class="service-icon">⚙️</div>
+                    <div class="service-icon">
+                        🤖
+                    </div>
 
-                <h3>אוטומציות</h3>
+                    <h3>
+                        פיתוח AI ובינה מלאכותית
+                    </h3>
 
-                <p>
-                    חיבור בין מערכות, טפסים, WhatsApp,
-                    CRM ו־API כדי לחסוך זמן.
-                </p>
+                    <p>
+                        צ'אטבוטים, עוזרים חכמים, אוטומציות,
+                        עיבוד מידע וחיבור למודלי AI.
+                    </p>
 
-                <a href="#contact">בניית אוטומציה →</a>
+                    <a href="#ai">
+                        פתרונות AI →
+                    </a>
 
-            </div>
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80"
+                        alt="קידום עסקים"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+                        📈
+                    </div>
+
+                    <h3>
+                        קידום עסקים
+                    </h3>
+
+                    <p>
+                        SEO, תוכן, נוכחות דיגיטלית ושיפור
+                        הדרך שבה לקוחות מוצאים את העסק שלך.
+                    </p>
+
+                    <a href="#contact">
+                        קידום העסק →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80"
+                        alt="חנות אונליין"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+                        🛒
+                    </div>
+
+                    <h3>
+                        חנויות אונליין
+                    </h3>
+
+                    <p>
+                        חנויות אינטרנטיות, קטלוגים,
+                        הזמנות ותהליכי מכירה.
+                    </p>
+
+                    <a href="#contact">
+                        בניית חנות →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80"
+                        alt="אוטומציות"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="service-content">
+
+                    <div class="service-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        אוטומציות
+                    </h3>
+
+                    <p>
+                        חיבור בין מערכות, טפסים, WhatsApp,
+                        CRM ו־API כדי לחסוך זמן.
+                    </p>
+
+                    <a href="#contact">
+                        בניית אוטומציה →
+                    </a>
+
+                </div>
+
+            </article>
+
 
         </div>
 
@@ -403,111 +529,146 @@
      AI
 ================================================== -->
 
-<section id="ai" class="ai-section">
+<section
+    id="ai"
+    class="ai-section"
+>
 
-    <div class="ai-content">
+    <div class="container">
+
+        <div class="ai-card">
 
 
-        <div class="ai-image-box">
+            <div class="ai-visual">
 
-            <div class="ai-image-frame">
+                <div class="ai-image-wrapper">
 
-                <img
-                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85"
-                    alt="פיתוח בינה מלאכותית"
+                    <img
+                        src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85"
+                        alt="פיתוח בינה מלאכותית"
+                        loading="lazy"
+                    >
+
+                    <div class="ai-image-label">
+                        <span>AI TECHNOLOGY</span>
+                        <strong>INTELLIGENT</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ai-content">
+
+                <span class="ai-tag">
+                    🤖 ARTIFICIAL INTELLIGENCE
+                </span>
+
+                <h2>
+                    הופכים את העסק
+                    <span>לחכם יותר</span>
+                </h2>
+
+                <p>
+                    בינה מלאכותית יכולה לעזור לעסק
+                    לחסוך זמן, לשפר שירות, לנתח מידע
+                    ולהפוך תהליכים ידניים לאוטומטיים.
+                </p>
+
+
+                <div class="ai-features">
+
+
+                    <div class="ai-feature">
+
+                        <span class="ai-feature-icon">
+                            🤖
+                        </span>
+
+                        <div>
+                            <strong>
+                                צ'אטבוטים חכמים
+                            </strong>
+
+                            <small>
+                                מענה אוטומטי ללקוחות
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-feature">
+
+                        <span class="ai-feature-icon">
+                            ⚡
+                        </span>
+
+                        <div>
+                            <strong>
+                                אוטומציות AI
+                            </strong>
+
+                            <small>
+                                חיסכון בזמן ובפעולות ידניות
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-feature">
+
+                        <span class="ai-feature-icon">
+                            📊
+                        </span>
+
+                        <div>
+                            <strong>
+                                ניתוח מידע
+                            </strong>
+
+                            <small>
+                                הפיכת מידע לתובנות
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-feature">
+
+                        <span class="ai-feature-icon">
+                            🔌
+                        </span>
+
+                        <div>
+                            <strong>
+                                חיבור ל־API
+                            </strong>
+
+                            <small>
+                                שילוב AI במערכות קיימות
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <a
+                    href="#contact"
+                    class="ai-button"
                 >
-
-                <div class="ai-image-overlay">
-
-                    <span>AI TECHNOLOGY</span>
-
-                    <strong>INTELLIGENT</strong>
-
-                </div>
+                    בואו נבנה פתרון AI
+                    <span>←</span>
+                </a>
 
             </div>
 
-        </div>
-
-
-        <div class="ai-text">
-
-            <div class="ai-label">
-                🤖 ARTIFICIAL INTELLIGENCE
-            </div>
-
-            <h2>
-                הופכים את העסק
-                <span>לחכם יותר</span>
-            </h2>
-
-            <p>
-                בינה מלאכותית יכולה לעזור לעסק
-                לחסוך זמן, לשפר שירות, לנתח מידע
-                ולהפוך תהליכים ידניים לאוטומטיים.
-            </p>
-
-
-            <div class="ai-features">
-
-
-                <div class="ai-feature">
-
-                    <div class="ai-feature-icon">🤖</div>
-
-                    <div>
-                        <strong>צ'אטבוטים חכמים</strong>
-                        <span>מענה אוטומטי ללקוחות</span>
-                    </div>
-
-                </div>
-
-
-                <div class="ai-feature">
-
-                    <div class="ai-feature-icon">⚡</div>
-
-                    <div>
-                        <strong>אוטומציות AI</strong>
-                        <span>חיסכון בזמן ובפעולות ידניות</span>
-                    </div>
-
-                </div>
-
-
-                <div class="ai-feature">
-
-                    <div class="ai-feature-icon">📊</div>
-
-                    <div>
-                        <strong>ניתוח מידע</strong>
-                        <span>הפיכת מידע לתובנות</span>
-                    </div>
-
-                </div>
-
-
-                <div class="ai-feature">
-
-                    <div class="ai-feature-icon">🔌</div>
-
-                    <div>
-                        <strong>חיבור ל־API</strong>
-                        <span>שילוב AI במערכות קיימות</span>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <a
-                href="#contact"
-                class="ai-button"
-            >
-                בואו נבנה פתרון AI ←
-            </a>
 
         </div>
 
@@ -522,44 +683,64 @@
 
 <section class="section why-section">
 
-    <div class="section-heading">
+    <div class="container">
 
-        <span>למה WebPro?</span>
+        <div class="section-heading">
 
-        <h2>לא רק אתר — פתרון לעסק</h2>
+            <span class="eyebrow">
+                למה WebPro?
+            </span>
 
-        <p>
-            אנחנו מסתכלים על התמונה המלאה:
-            העסק, הלקוחות, התהליך והטכנולוגיה.
-        </p>
+            <h2>
+                לא רק אתר — פתרון לעסק
+            </h2>
 
-    </div>
+            <p>
+                אנחנו מסתכלים על התמונה המלאה:
+                העסק, הלקוחות, התהליך והטכנולוגיה.
+            </p>
 
-
-    <div class="why-grid">
-
-        <div class="why-card">
-            <div class="why-icon">⚡</div>
-            <h3>מהירות</h3>
-            <p>בנייה עם דגש על מהירות וחוויית משתמש.</p>
         </div>
 
-        <div class="why-card">
-            <div class="why-icon">📱</div>
-            <h3>Mobile First</h3>
-            <p>התאמה למובייל, טאבלט ומחשב.</p>
-        </div>
 
-        <div class="why-card">
-            <div class="why-icon">🧠</div>
-            <h3>טכנולוגיה</h3>
-            <p>Web, Software, AI ואוטומציות במקום אחד.</p>
-        </div>
+        <div class="why-grid">
 
-        <div class="why-card">
-            <div class="why-icon">🎯</div>
-            <h3>חשיבה עסקית</h3>
-            <p>המטרה היא לעזור לעסק לעבוד ולצמוח.</p>
+            <div class="why-card">
+                <span>⚡</span>
+                <h3>מהירות</h3>
+                <p>
+                    בנייה עם דגש על מהירות
+                    וחוויית משתמש.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <span>📱</span>
+                <h3>Mobile First</h3>
+                <p>
+                    התאמה למובייל,
+                    טאבלט ומחשב.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <span>🧠</span>
+                <h3>טכנולוגיה</h3>
+                <p>
+                    Web, Software, AI
+                    ואוטומציות במקום אחד.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <span>🎯</span>
+                <h3>חשיבה עסקית</h3>
+                <p>
+                    המטרה היא לעזור לעסק
+                    לעבוד ולצמוח.
+                </p>
+            </div>
+
         </div>
 
     </div>
@@ -571,41 +752,64 @@
      PROCESS
 ================================================== -->
 
-<section id="process" class="section process-section">
+<section
+    id="process"
+    class="section process-section"
+>
 
-    <div class="section-heading">
+    <div class="container">
 
-        <span>איך זה עובד?</span>
+        <div class="section-heading">
 
-        <h2>מרעיון למוצר דיגיטלי</h2>
+            <span class="eyebrow">
+                איך זה עובד?
+            </span>
 
-    </div>
+            <h2>
+                מרעיון למוצר דיגיטלי
+            </h2>
 
-
-    <div class="process-grid">
-
-        <div class="process-card">
-            <div class="process-number">01</div>
-            <h3>מבינים</h3>
-            <p>מכירים את העסק, הלקוחות והצורך.</p>
         </div>
 
-        <div class="process-card">
-            <div class="process-number">02</div>
-            <h3>מתכננים</h3>
-            <p>מבנים את הפתרון, העיצוב והפונקציות.</p>
-        </div>
 
-        <div class="process-card">
-            <div class="process-number">03</div>
-            <h3>מפתחים</h3>
-            <p>בונים את האתר, המערכת או פתרון ה־AI.</p>
-        </div>
+        <div class="process-grid">
 
-        <div class="process-card">
-            <div class="process-number">04</div>
-            <h3>משיקים</h3>
-            <p>בודקים, משפרים ומעלים לאוויר.</p>
+            <div class="process-card">
+                <span class="process-number">01</span>
+                <h3>מבינים</h3>
+                <p>
+                    מכירים את העסק,
+                    הלקוחות והצורך.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <span class="process-number">02</span>
+                <h3>מתכננים</h3>
+                <p>
+                    מבנים את הפתרון,
+                    העיצוב והפונקציות.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <span class="process-number">03</span>
+                <h3>מפתחים</h3>
+                <p>
+                    בונים את האתר,
+                    המערכת או פתרון ה־AI.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <span class="process-number">04</span>
+                <h3>משיקים</h3>
+                <p>
+                    בודקים, משפרים
+                    ומעלים לאוויר.
+                </p>
+            </div>
+
         </div>
 
     </div>
@@ -617,99 +821,108 @@
      PORTFOLIO
 ================================================== -->
 
-<section id="portfolio" class="section portfolio-section">
+<section
+    id="portfolio"
+    class="section portfolio-section"
+>
 
-    <div class="section-heading">
+    <div class="container">
 
-        <span>תיק עבודות</span>
+        <div class="section-heading">
 
-        <h2>סוגי פרויקטים שאפשר לבנות</h2>
+            <span class="eyebrow">
+                תיק עבודות
+            </span>
 
-        <p>
-            אתר עסקי, חנות, מערכת ניהול או פתרון AI.
-        </p>
+            <h2>
+                סוגי פרויקטים שאפשר לבנות
+            </h2>
 
-    </div>
-
-
-    <div class="portfolio-grid">
-
-        <div class="portfolio-card">
-
-            <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-                alt="אתר עסקי"
-            >
-
-            <div class="portfolio-overlay">
-
-                <span>WEBSITE</span>
-
-                <h3>אתר עסקי</h3>
-
-                <p>אתר תדמית עם טופס לידים ושירותים.</p>
-
-            </div>
+            <p>
+                אתר עסקי, חנות, מערכת ניהול או פתרון AI.
+            </p>
 
         </div>
 
 
-        <div class="portfolio-card">
-
-            <img
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80"
-                alt="חנות אונליין"
-            >
-
-            <div class="portfolio-overlay">
-
-                <span>E-COMMERCE</span>
-
-                <h3>חנות אונליין</h3>
-
-                <p>חנות מוצרים עם חוויית קנייה.</p>
-
-            </div>
-
-        </div>
+        <div class="portfolio-grid">
 
 
-        <div class="portfolio-card">
+            <article class="portfolio-card">
 
-            <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
-                alt="מערכת תוכנה"
-            >
+                <img
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+                    alt="אתר עסקי"
+                    loading="lazy"
+                >
 
-            <div class="portfolio-overlay">
+                <div class="portfolio-overlay">
+                    <span>WEBSITE</span>
+                    <h3>אתר עסקי</h3>
+                    <p>
+                        אתר תדמית עם טופס לידים ושירותים.
+                    </p>
+                </div>
 
-                <span>SOFTWARE</span>
-
-                <h3>מערכת לעסק</h3>
-
-                <p>CRM, לקוחות, פניות וכלי ניהול.</p>
-
-            </div>
-
-        </div>
+            </article>
 
 
-        <div class="portfolio-card">
+            <article class="portfolio-card">
 
-            <img
-                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80"
-                alt="מערכת AI"
-            >
+                <img
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80"
+                    alt="חנות אונליין"
+                    loading="lazy"
+                >
 
-            <div class="portfolio-overlay">
+                <div class="portfolio-overlay">
+                    <span>E-COMMERCE</span>
+                    <h3>חנות אונליין</h3>
+                    <p>
+                        חנות מוצרים עם חוויית קנייה.
+                    </p>
+                </div>
 
-                <span>ARTIFICIAL INTELLIGENCE</span>
+            </article>
 
-                <h3>מערכת AI</h3>
 
-                <p>עוזר חכם ואוטומציות מבוססות AI.</p>
+            <article class="portfolio-card">
 
-            </div>
+                <img
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
+                    alt="מערכת תוכנה"
+                    loading="lazy"
+                >
+
+                <div class="portfolio-overlay">
+                    <span>SOFTWARE</span>
+                    <h3>מערכת לעסק</h3>
+                    <p>
+                        CRM, לקוחות, פניות וכלי ניהול.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="portfolio-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80"
+                    alt="מערכת AI"
+                    loading="lazy"
+                >
+
+                <div class="portfolio-overlay">
+                    <span>ARTIFICIAL INTELLIGENCE</span>
+                    <h3>מערכת AI</h3>
+                    <p>
+                        עוזר חכם ואוטומציות מבוססות AI.
+                    </p>
+                </div>
+
+            </article>
+
 
         </div>
 
@@ -722,93 +935,133 @@
      PRICING
 ================================================== -->
 
-<section id="pricing" class="section pricing-section">
+<section
+    id="pricing"
+    class="section pricing-section"
+>
 
-    <div class="section-heading">
+    <div class="container">
 
-        <span>חבילות</span>
+        <div class="section-heading">
 
-        <h2>מתחילים קטן וגדלים עם העסק</h2>
+            <span class="eyebrow">
+                חבילות
+            </span>
 
-        <p>
-            המחיר הסופי נקבע לפי היקף העבודה והדרישות.
-        </p>
+            <h2>
+                מתחילים קטן וגדלים עם העסק
+            </h2>
 
-    </div>
-
-
-    <div class="pricing-grid">
-
-
-        <div class="price-card">
-
-            <span class="price-tag">STARTER</span>
-
-            <h3>אתר תדמית</h3>
-
-            <div class="price">החל מ־₪2,500</div>
-
-            <ul>
-                <li>✓ אתר מקצועי</li>
-                <li>✓ התאמה למובייל</li>
-                <li>✓ טופס יצירת קשר</li>
-                <li>✓ WhatsApp</li>
-            </ul>
-
-            <a href="#contact" class="price-button">
-                קבל הצעה
-            </a>
+            <p>
+                המחיר הסופי נקבע לפי היקף העבודה והדרישות.
+            </p>
 
         </div>
 
 
-        <div class="price-card featured">
+        <div class="pricing-grid">
 
-            <span class="popular">מומלץ</span>
 
-            <span class="price-tag">BUSINESS</span>
+            <article class="price-card">
 
-            <h3>אתר + מערכת</h3>
+                <span class="price-label">
+                    STARTER
+                </span>
 
-            <div class="price">החל מ־₪4,500</div>
+                <h3>
+                    אתר תדמית
+                </h3>
 
-            <ul>
-                <li>✓ אתר מתקדם</li>
-                <li>✓ מערכת לקוחות</li>
-                <li>✓ WhatsApp</li>
-                <li>✓ SEO בסיסי</li>
-                <li>✓ אזור מנהל</li>
-            </ul>
+                <div class="price">
+                    החל מ־₪2,500
+                </div>
 
-            <a href="#contact" class="price-button">
-                קבל הצעה
-            </a>
+                <ul>
+                    <li>✓ אתר מקצועי</li>
+                    <li>✓ התאמה למובייל</li>
+                    <li>✓ טופס יצירת קשר</li>
+                    <li>✓ WhatsApp</li>
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="price-button"
+                >
+                    קבל הצעה
+                </a>
+
+            </article>
+
+
+            <article class="price-card featured-price">
+
+                <span class="popular-badge">
+                    מומלץ
+                </span>
+
+                <span class="price-label">
+                    BUSINESS
+                </span>
+
+                <h3>
+                    אתר + מערכת
+                </h3>
+
+                <div class="price">
+                    החל מ־₪4,500
+                </div>
+
+                <ul>
+                    <li>✓ אתר מתקדם</li>
+                    <li>✓ מערכת לקוחות</li>
+                    <li>✓ WhatsApp</li>
+                    <li>✓ SEO בסיסי</li>
+                    <li>✓ אזור מנהל</li>
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="price-button price-button-blue"
+                >
+                    קבל הצעה
+                </a>
+
+            </article>
+
+
+            <article class="price-card">
+
+                <span class="price-label">
+                    AI / PRO
+                </span>
+
+                <h3>
+                    מערכת AI
+                </h3>
+
+                <div class="price">
+                    בהתאמה אישית
+                </div>
+
+                <ul>
+                    <li>✓ פיתוח תוכנה</li>
+                    <li>✓ AI</li>
+                    <li>✓ API</li>
+                    <li>✓ אוטומציות</li>
+                    <li>✓ מערכת מנהל</li>
+                </ul>
+
+                <a
+                    href="#contact"
+                    class="price-button"
+                >
+                    דבר איתנו
+                </a>
+
+            </article>
+
 
         </div>
-
-
-        <div class="price-card">
-
-            <span class="price-tag">AI / PRO</span>
-
-            <h3>מערכת AI</h3>
-
-            <div class="price">בהתאמה אישית</div>
-
-            <ul>
-                <li>✓ פיתוח תוכנה</li>
-                <li>✓ AI</li>
-                <li>✓ API</li>
-                <li>✓ אוטומציות</li>
-                <li>✓ מערכת מנהל</li>
-            </ul>
-
-            <a href="#contact" class="price-button">
-                דבר איתנו
-            </a>
-
-        </div>
-
 
     </div>
 
@@ -819,14 +1072,17 @@
      ABOUT
 ================================================== -->
 
-<section id="about" class="section about-section">
+<section
+    id="about"
+    class="section about-section"
+>
 
-    <div class="about-content">
+    <div class="container about-grid">
 
 
-        <div>
+        <div class="about-text">
 
-            <span class="section-label">
+            <span class="eyebrow">
                 אודות WebPro
             </span>
 
@@ -844,28 +1100,27 @@
                 לפתרונות נוחים, מהירים וברורים.
             </p>
 
-            <a href="#contact" class="main-button">
+            <a
+                href="#contact"
+                class="primary-button"
+            >
                 בואו נדבר
             </a>
 
         </div>
 
 
-        <div class="about-visual">
+        <div class="about-image">
 
             <img
                 src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
                 alt="סביבת עבודה טכנולוגית"
+                loading="lazy"
             >
 
-            <div class="about-badge">
-
+            <div class="about-floating-card">
                 <strong>WebPro</strong>
-
-                <span>
-                    Web • Software • AI
-                </span>
-
+                <span>Web • Software • AI</span>
             </div>
 
         </div>
@@ -880,78 +1135,79 @@
      FAQ
 ================================================== -->
 
-<section id="faq" class="section faq-section">
+<section
+    id="faq"
+    class="section faq-section"
+>
 
-    <div class="section-heading">
+    <div class="container">
 
-        <span>שאלות נפוצות</span>
+        <div class="section-heading">
 
-        <h2>לפני שמתחילים</h2>
+            <span class="eyebrow">
+                שאלות נפוצות
+            </span>
 
-    </div>
+            <h2>
+                לפני שמתחילים
+            </h2>
 
-
-    <div class="faq-grid">
-
-
-        <details>
-
-            <summary>
-                האם אתם בונים גם מערכות תוכנה?
-            </summary>
-
-            <p>
-                כן. ניתן לבנות מערכות ניהול,
-                CRM, אזורים אישיים, מערכות הזמנות
-                ופתרונות מותאמים אישית.
-            </p>
-
-        </details>
+        </div>
 
 
-        <details>
+        <div class="faq-list">
 
-            <summary>
-                האם אתם מפתחים פתרונות AI?
-            </summary>
+            <details>
+                <summary>
+                    האם אתם בונים גם מערכות תוכנה?
+                </summary>
 
-            <p>
-                כן. אפשר לפתח צ'אטבוטים,
-                עוזרים חכמים, אוטומציות,
-                ניתוח מידע וחיבור ל־API.
-            </p>
-
-        </details>
-
-
-        <details>
-
-            <summary>
-                האם האתר מתאים למובייל?
-            </summary>
-
-            <p>
-                כן. האתר מותאם למחשב,
-                טלפון וטאבלט.
-            </p>
-
-        </details>
+                <p>
+                    כן. ניתן לבנות מערכות ניהול,
+                    CRM, אזורים אישיים, מערכות הזמנות
+                    ופתרונות מותאמים אישית.
+                </p>
+            </details>
 
 
-        <details>
+            <details>
+                <summary>
+                    האם אתם מפתחים פתרונות AI?
+                </summary>
 
-            <summary>
-                אפשר להתחיל מאתר ובהמשך להוסיף AI?
-            </summary>
+                <p>
+                    כן. אפשר לפתח צ'אטבוטים,
+                    עוזרים חכמים, אוטומציות,
+                    ניתוח מידע וחיבור ל־API.
+                </p>
+            </details>
 
-            <p>
-                בהחלט. אפשר להתחיל באתר
-                ולהוסיף בהמשך מערכות תוכנה,
-                AI ואוטומציות.
-            </p>
 
-        </details>
+            <details>
+                <summary>
+                    האם האתר מתאים למובייל?
+                </summary>
 
+                <p>
+                    כן. האתר מותאם למחשב,
+                    טלפון וטאבלט.
+                </p>
+            </details>
+
+
+            <details>
+                <summary>
+                    אפשר להתחיל מאתר ובהמשך להוסיף AI?
+                </summary>
+
+                <p>
+                    בהחלט. אפשר להתחיל באתר
+                    ולהוסיף בהמשך מערכות תוכנה,
+                    AI ואוטומציות.
+                </p>
+            </details>
+
+        </div>
 
     </div>
 
@@ -962,14 +1218,19 @@
      CONTACT
 ================================================== -->
 
-<section id="contact" class="contact-section">
+<section
+    id="contact"
+    class="contact-section"
+>
 
-    <div class="contact-content">
+    <div class="container contact-grid">
 
 
-        <div class="contact-text">
+        <div class="contact-intro">
 
-            <span>מתחילים כאן</span>
+            <span class="eyebrow">
+                מתחילים כאן
+            </span>
 
             <h2>
                 ספר לנו מה העסק שלך צריך
@@ -981,11 +1242,42 @@
                 מלא את הפרטים ונחזור אליך.
             </p>
 
-            <div class="contact-points">
 
-                <div>✓ שיחה ראשונית</div>
-                <div>✓ אפיון הצורך</div>
-                <div>✓ הצעת פתרון</div>
+            <div class="contact-benefits">
+
+                <div>
+                    <span>✓</span>
+                    שיחה ראשונית
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    אפיון הצורך
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    הצעת פתרון
+                </div>
+
+            </div>
+
+
+            <div class="contact-direct">
+
+                <a
+                    href="tel:+972533010326"
+                >
+                    📞 053-301-0326
+                </a>
+
+                <a
+                    href="https://wa.me/972533010326"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    💬 WhatsApp
+                </a>
 
             </div>
 
@@ -997,12 +1289,22 @@
             id="contactForm"
         >
 
+            <div class="form-title">
+                השאר פרטים
+            </div>
+
+            <div class="form-subtitle">
+                נחזור אליך בהקדם.
+            </div>
+
+
             <input
                 type="text"
                 name="name"
                 placeholder="שם מלא"
                 required
             >
+
 
             <input
                 type="tel"
@@ -1011,11 +1313,13 @@
                 required
             >
 
+
             <input
                 type="text"
                 name="business"
                 placeholder="שם העסק"
             >
+
 
             <select
                 name="service"
@@ -1056,27 +1360,31 @@
 
             </select>
 
+
             <textarea
                 name="message"
-                rows="6"
+                rows="5"
                 placeholder="ספר לנו על העסק ומה אתה רוצה לבנות"
             ></textarea>
 
+
             <button
                 type="submit"
-                class="main-button"
+                class="primary-button form-submit"
             >
                 שלח פרטים
             </button>
 
+
             <p
                 id="formMessage"
-                class="form-note"
+                class="form-message"
             >
                 הפרטים ישמשו לצורך יצירת קשר.
             </p>
 
         </form>
+
 
     </div>
 
@@ -1089,17 +1397,28 @@
 
 <section class="final-cta">
 
-    <h2>
-        מוכן לבנות את הפתרון הדיגיטלי הבא שלך?
-    </h2>
+    <div class="container">
 
-    <p>
-        Web • Software • AI
-    </p>
+        <span class="eyebrow">
+            WEB • SOFTWARE • AI
+        </span>
 
-    <a href="#contact" class="main-button">
-        מתחילים עכשיו
-    </a>
+        <h2>
+            מוכן לבנות את הפתרון הדיגיטלי הבא שלך?
+        </h2>
+
+        <p>
+            בואו נתחיל מרעיון ונבנה ממנו משהו שעובד.
+        </p>
+
+        <a
+            href="#contact"
+            class="primary-button"
+        >
+            מתחילים עכשיו
+        </a>
+
+    </div>
 
 </section>
 
@@ -1108,79 +1427,222 @@
      FOOTER
 ================================================== -->
 
-<footer>
+<footer class="site-footer">
 
-    <div class="footer-content">
+    <div class="container footer-main">
 
 
-        <div>
+        <!-- BRAND -->
 
-            <div class="footer-logo-wrap">
+        <div class="footer-brand">
 
-                <div class="footer-logo-mark">
+            <a
+                href="#home"
+                class="footer-logo"
+            >
+
+                <span class="footer-logo-mark">
                     W
-                </div>
+                </span>
 
-                <div class="footer-logo">
-                    WebPro
-                </div>
+                <span class="footer-logo-name">
+                    Web<span>Pro</span>
+                </span>
+
+            </a>
+
+
+            <p>
+                פתרונות דיגיטליים לעסקים:
+                בניית אתרים, פיתוח תוכנה,
+                AI, אוטומציות וחנויות אונליין.
+            </p>
+
+
+            <div class="footer-tags">
+
+                <span>WEB</span>
+                <span>SOFTWARE</span>
+                <span>AI</span>
+                <span>AUTOMATION</span>
 
             </div>
 
+        </div>
+
+
+        <!-- SERVICES -->
+
+        <div class="footer-column">
+
+            <h3>
+                שירותים
+            </h3>
+
+            <a href="#services">
+                בניית אתרים
+            </a>
+
+            <a href="#services">
+                פיתוח תוכנה
+            </a>
+
+            <a href="#ai">
+                פיתוח AI
+            </a>
+
+            <a href="#services">
+                קידום עסקים
+            </a>
+
+            <a href="#services">
+                חנויות אונליין
+            </a>
+
+            <a href="#services">
+                אוטומציות
+            </a>
+
+        </div>
+
+
+        <!-- NAV -->
+
+        <div class="footer-column">
+
+            <h3>
+                ניווט
+            </h3>
+
+            <a href="#home">
+                ראשי
+            </a>
+
+            <a href="#services">
+                שירותים
+            </a>
+
+            <a href="#ai">
+                AI
+            </a>
+
+            <a href="#portfolio">
+                תיק עבודות
+            </a>
+
+            <a href="#pricing">
+                חבילות
+            </a>
+
+            <a href="#about">
+                אודות
+            </a>
+
+            <a href="#contact">
+                צור קשר
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-column footer-contact">
+
+            <h3>
+                דברו איתנו
+            </h3>
+
             <p>
-                בניית אתרים, פיתוח תוכנה,
-                פיתוח AI וקידום עסקים.
+                יש לכם רעיון לאתר,
+                מערכת או פתרון AI?
+                בואו נבנה אותו יחד.
             </p>
 
+
+            <a
+                href="tel:+972533010326"
+                class="footer-contact-link"
+            >
+
+                <span class="footer-contact-icon">
+                    📞
+                </span>
+
+                <span>
+                    053-301-0326
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://wa.me/972533010326"
+                class="footer-contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <span class="footer-contact-icon whatsapp-icon">
+                    💬
+                </span>
+
+                <span>
+                    WhatsApp
+                </span>
+
+            </a>
+
+
+            <a
+                href="#contact"
+                class="footer-cta"
+            >
+                קבל הצעת מחיר
+                <span>←</span>
+            </a>
+
         </div>
 
-
-        <div>
-
-            <h3>שירותים</h3>
-
-            <a href="#services">בניית אתרים</a>
-            <a href="#services">פיתוח תוכנה</a>
-            <a href="#ai">פיתוח AI</a>
-            <a href="#services">קידום עסקים</a>
-
-        </div>
-
-
-        <div>
-
-            <h3>ניווט</h3>
-
-            <a href="#home">ראשי</a>
-            <a href="#portfolio">תיק עבודות</a>
-            <a href="#pricing">חבילות</a>
-            <a href="#contact">צור קשר</a>
-
-        </div>
 
     </div>
 
 
-    <div class="copyright">
-        © 2026 WebPro Digital. כל הזכויות שמורות.
+    <div class="footer-bottom">
+
+        <div class="container footer-bottom-inner">
+
+            <span>
+                © 2026 WebPro Digital. כל הזכויות שמורות.
+            </span>
+
+            <span>
+                Web • Software • AI
+            </span>
+
+        </div>
+
     </div>
 
 </footer>
 
 
-<script src="company.js"></script>
+<!-- ==================================================
+     SCRIPTS
+================================================== -->
 
+<script src="company.js"></script>
 
 <script>
 
-const form =
+const contactForm =
     document.getElementById("contactForm");
 
 const formMessage =
     document.getElementById("formMessage");
 
 
-form.addEventListener(
+contactForm.addEventListener(
     "submit",
     async function(event) {
 
@@ -1188,7 +1650,7 @@ form.addEventListener(
 
 
         const formData =
-            new FormData(form);
+            new FormData(contactForm);
 
 
         const data = {
@@ -1207,14 +1669,15 @@ form.addEventListener(
 
             message:
                 formData.get("message")
+
         };
 
 
         formMessage.textContent =
             "שולח את הפרטים...";
 
-        formMessage.style.color =
-            "#2563eb";
+        formMessage.className =
+            "form-message sending";
 
 
         try {
@@ -1237,7 +1700,9 @@ form.addEventListener(
 
 
             if (!response.ok) {
-                throw new Error("Request failed");
+                throw new Error(
+                    "Request failed"
+                );
             }
 
 
@@ -1245,16 +1710,21 @@ form.addEventListener(
                 await response.json();
 
 
-            if (result.success) {
-
-                form.reset();
-
-                formMessage.textContent =
-                    "הפרטים נשלחו בהצלחה! נחזור אליך בהקדם.";
-
-                formMessage.style.color =
-                    "#16a34a";
+            if (!result.success) {
+                throw new Error(
+                    "Save failed"
+                );
             }
+
+
+            contactForm.reset();
+
+
+            formMessage.textContent =
+                "הפרטים נשלחו בהצלחה! נחזור אליך בהקדם.";
+
+            formMessage.className =
+                "form-message success";
 
         }
 
@@ -1262,11 +1732,13 @@ form.addEventListener(
 
             console.error(error);
 
-            formMessage.textContent =
-                "אירעה שגיאה בשליחה. אפשר ליצור איתנו קשר ב־WhatsApp.";
 
-            formMessage.style.color =
-                "#dc2626";
+            formMessage.textContent =
+                "אירעה שגיאה בשליחה. נסה שוב או צור קשר ב־WhatsApp.";
+
+            formMessage.className =
+                "form-message error";
+
         }
 
     }
@@ -1276,4 +1748,5 @@ form.addEventListener(
 
 
 </body>
+
 </html>
