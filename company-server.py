@@ -30,6 +30,12 @@ def sitemap_xml():
         "sitemap.xml",
         media_type="application/xml"
     )
+@app.get("/logo.svg", include_in_schema=False)
+def logo_svg():
+    return FileResponse(
+        "logo.svg",
+        media_type="image/svg+xml"
+    )
 # ==================================================
 # SETTINGS
 # ==================================================
