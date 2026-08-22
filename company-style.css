@@ -1413,96 +1413,191 @@ textarea {
    FOOTER
 ================================================== */
 
-footer {
-    width: 100%;
+<footer class="site-footer">
 
-    padding:
-        60px 24px 20px;
+    <div class="footer-top">
 
-    background: #020617;
+        <!-- BRAND -->
+        <div class="footer-brand">
 
-    color: white;
-}
+            <a
+                href="#home"
+                class="footer-brand-logo"
+            >
+                <span class="footer-logo-mark">
+                    W
+                </span>
 
-.footer-content {
-    width: 100%;
+                <span class="footer-logo-text">
+                    Web<span>Pro</span>
+                </span>
+            </a>
 
-    max-width: 1150px;
+            <p>
+                WebPro עוזרת לעסקים לבנות נוכחות דיגיטלית,
+                לפתח מערכות תוכנה, לשלב AI ולהפוך תהליכים
+                מורכבים לפתרונות פשוטים וחכמים.
+            </p>
 
-    margin: 0 auto;
+            <div class="footer-services-tags">
 
-    display: grid;
+                <span>Web</span>
+                <span>Software</span>
+                <span>AI</span>
+                <span>Automation</span>
 
-    grid-template-columns:
-        1.5fr 1fr 1fr;
+            </div>
 
-    gap: 50px;
-}
+        </div>
 
-.footer-logo-wrap {
-    display: flex;
 
-    align-items: center;
+        <!-- SERVICES -->
+        <div class="footer-column">
 
-    gap: 10px;
+            <h3>
+                השירותים שלנו
+            </h3>
 
-    direction: ltr;
-}
+            <a href="#services">
+                בניית אתרים
+            </a>
 
-.footer-logo-mark {
-    width: 38px;
-    height: 38px;
+            <a href="#services">
+                פיתוח תוכנה
+            </a>
 
-    display: flex;
+            <a href="#ai">
+                פיתוח AI
+            </a>
 
-    align-items: center;
-    justify-content: center;
+            <a href="#services">
+                קידום עסקים
+            </a>
 
-    border-radius: 10px;
+            <a href="#services">
+                חנויות אונליין
+            </a>
 
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #7c3aed
-        );
+            <a href="#services">
+                אוטומציות
+            </a>
 
-    font-weight: 700;
-}
+        </div>
 
-.footer-logo {
-    font-size: 26px;
 
-    font-weight: 700;
-}
+        <!-- NAVIGATION -->
+        <div class="footer-column">
 
-.footer-content p,
-.footer-content a {
-    color: #94a3b8;
-}
+            <h3>
+                ניווט
+            </h3>
 
-.footer-content a {
-    display: block;
+            <a href="#home">
+                ראשי
+            </a>
 
-    margin: 8px 0;
-}
+            <a href="#services">
+                שירותים
+            </a>
 
-.copyright {
-    width: 100%;
+            <a href="#ai">
+                AI
+            </a>
 
-    max-width: 1150px;
+            <a href="#portfolio">
+                תיק עבודות
+            </a>
 
-    margin: 40px auto 0;
+            <a href="#pricing">
+                חבילות
+            </a>
 
-    padding-top: 20px;
+            <a href="#about">
+                אודות
+            </a>
 
-    border-top:
-        1px solid #1e293b;
+            <a href="#contact">
+                צור קשר
+            </a>
 
-    text-align: center;
+        </div>
 
-    color: #64748b;
-}
+
+        <!-- CONTACT -->
+        <div class="footer-column footer-contact">
+
+            <h3>
+                דברו איתנו
+            </h3>
+
+            <p class="footer-contact-text">
+                יש לך רעיון לאתר, מערכת או פתרון AI?
+                בוא נבנה אותו יחד.
+            </p>
+
+
+            <a
+                href="tel:+972533010326"
+                class="footer-contact-item"
+            >
+                <span class="footer-contact-icon">
+                    📞
+                </span>
+
+                <span>
+                    053-301-0326
+                </span>
+            </a>
+
+
+            <a
+                href="https://wa.me/972533010326"
+                class="footer-contact-item"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <span class="footer-contact-icon whatsapp-footer-icon">
+                    💬
+                </span>
+
+                <span>
+                    WhatsApp
+                </span>
+            </a>
+
+
+            <a
+                href="#contact"
+                class="footer-cta"
+            >
+                קבל הצעת מחיר
+                <span>←</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+
+        <div class="footer-bottom-content">
+
+            <span>
+                © 2026 WebPro Digital.
+                כל הזכויות שמורות.
+            </span>
+
+            <span>
+                Web • Software • AI
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
 /* ==================================================
@@ -1791,4 +1886,412 @@ footer {
 
         height: 44px;
     }
+/* ==================================================
+   PREMIUM FOOTER
+================================================== */
+
+.site-footer {
+    position: relative;
+
+    width: 100%;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(37, 99, 235, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(124, 58, 237, 0.10),
+            transparent 30%
+        ),
+        #020617;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* TOP */
+
+.footer-top {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding:
+        75px 24px 55px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1.2fr;
+
+    gap: 55px;
+}
+
+
+/* BRAND */
+
+.footer-brand {
+    min-width: 0;
+}
+
+.footer-brand-logo {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    direction: ltr;
+
+    color: white;
+
+    margin-bottom: 18px;
+}
+
+.footer-logo-mark {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px
+        rgba(37, 99, 235, 0.30);
+}
+
+.footer-logo-text {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 29px;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+.footer-logo-text span {
+    color: #60a5fa;
+}
+
+.footer-brand p {
+    max-width: 430px;
+
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* TAGS */
+
+.footer-services-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+.footer-services-tags span {
+    padding: 6px 11px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.09);
+
+    color: #cbd5e1;
+
+    font-size: 12px;
+}
+
+
+/* COLUMNS */
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.footer-column h3 {
+    margin: 0 0 18px;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+.footer-column a {
+    position: relative;
+
+    display: inline-block;
+
+    margin: 5px 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    transition:
+        color 0.2s,
+        transform 0.2s;
+}
+
+.footer-column a:hover {
+    color: white;
+
+    transform: translateX(-3px);
+}
+
+
+/* CONTACT */
+
+.footer-contact-text {
+    margin: 0 0 15px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.footer-contact-item {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 5px 0;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+    color: #dbeafe !important;
+
+    transition: 0.2s;
+}
+
+.footer-contact-item:hover {
+    background:
+        rgba(255,255,255,0.07);
+
+    border-color:
+        rgba(96,165,250,0.25);
+}
+
+.footer-contact-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(37,99,235,0.16);
+
+    flex-shrink: 0;
+}
+
+.whatsapp-footer-icon {
+    background:
+        rgba(37,211,102,0.13);
+}
+
+
+/* CTA */
+
+.footer-cta {
+    width: 100%;
+
+    display: flex !important;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 15px !important;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: white !important;
+
+    font-weight: 800 !important;
+
+    box-shadow:
+        0 10px 25px
+        rgba(37,99,235,0.20);
+
+    transform: none !important;
+}
+
+.footer-cta:hover {
+    color: white !important;
+
+    box-shadow:
+        0 15px 32px
+        rgba(37,99,235,0.30);
+}
+
+
+/* BOTTOM */
+
+.footer-bottom {
+    width: 100%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+.footer-bottom-content {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding:
+        20px 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 950px) {
+
+    .footer-top {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 40px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .footer-top {
+        grid-template-columns: 1fr;
+
+        padding:
+            55px 20px 40px;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-brand p {
+        max-width: none;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding:
+            18px 20px;
+    }
+
+    .footer-contact-item {
+        max-width: 100%;
+    }
+
 }
