@@ -24,6 +24,12 @@ def robots_txt():
         "robots.txt",
         media_type="text/plain"
     )
+@app.get("/sitemap.xml", include_in_schema=False)
+def sitemap_xml():
+    return FileResponse(
+        "sitemap.xml",
+        media_type="application/xml"
+    )
 # ==================================================
 # SETTINGS
 # ==================================================
